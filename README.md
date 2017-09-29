@@ -1,24 +1,55 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
 
-Things you may want to cover:
+|column|type|option|
+|--------|--------|--------|
+|user_name|string|null: false, add_index :users, :user_name, unique: true|
+|icon_image|string|--------|
 
-* Ruby version
+### association
 
-* System dependencies
+- has_many :recipes
 
-* Configuration
+## recipesテーブル
 
-* Database creation
+|column|type|option|
+|--------|--------|--------|
+|title|string|null: false, add_index :recipes, :title|
+|main_image|string|--------|
+|catchphrase|string|--------|
+|tips|text|--------|
+|publicpage|integer|null: false|
+|background|text|---------|
+|user_id|integer|null: false, foreign_key: true|
 
-* Database initialization
+### association
 
-* How to run the test suite
+- belongs_to :user
+- has_many :ingredients
+- has_many :processes
 
-* Services (job queues, cache servers, search engines, etc.)
+## ingredientsテーブル
 
-* Deployment instructions
+|column|type|option|
+|--------|--------|--------|
+|ingredient_name|string|null: false|
+|weight|string|null: false|
+|recipe_id|integer|null: false, foreign_key: true|
 
-* ...
+### association
+
+- belongs_to :recipe
+
+## processesテーブル
+
+|column|type|option|
+|--------|--------|--------|
+|making_image|string|-------|
+|body|text|null: false|
+|recipe_id|integer|null: false, foreign_key: true|
+
+### association
+
+- belongs_to :recipe
+
