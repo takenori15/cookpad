@@ -1,0 +1,28 @@
+#wrapper
+  #container
+    #contents
+      .main650.no_default_main#main
+        #kitchen_editer
+          #two-col-left.kitchen
+            #user
+              .separate_wrapper.page_title
+                %h1.page_title_with_line 登録情報
+                %p.separate_right このページはあなたのみ閲覧できます
+              #account_info
+                #user_icon_wrapper
+                  %a.colorbox_link
+                    =image_tag("coffee.jpeg", width: 48, height: 48)
+                  %p
+                    %a.colorbox_link 変更する
+                %h2#nickname
+                  takenori
+                  %a#link_to_edit_user_name
+                    (変更する)
+                %p#kitchen_setting
+                  %span.your_kitchen
+                    あなたのキッチン :
+                  %a
+                    takenoriのキッチン
+                %p#register_and_update_date
+                  登録日:14/10/1
+                  更新日:17/09/27
