@@ -61,3 +61,4 @@ group :production do
 end
 
 gem 'erb2haml'
+gem 'haml-rails'
