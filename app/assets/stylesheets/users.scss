@@ -324,4 +324,206 @@ html{
       font-weight: bold;
     }
   }
+    #kitchen_header{
+      padding: 0;
+      border: 1px solid #e3dcca;
+      border-radius: 5px;
+      background: #ffffff;
+      margin-bottom: 10px;
+      overflow: visible;
+      #header_image_wrapper{
+        position: relative;
+        height: 120px;
+        padding: 0;
+        border: none;
+        width: auto;
+        margin-bottom: 0;
+        border-radius: 5px 5px 0 0;
+        background-color: #cccccc
+      }
+      .header_bottom{
+        height: auto;
+        padding: 5px 10px 10px;
+        position: relative;
+        line-height: 35px;
+        min-height: 70px;
+        .user_icon{
+          top: -24px;
+          height: 90px;
+          width: 90px;
+          border-radius: 5px;
+          border: 1px solid #ebe6d0;
+          padding: 4px;
+          position: absolute;
+          background: #ffffff;
+        }
+        .user_name{
+          margin-left: 110px;
+          position: relative;
+          float: none;
+          color: #4d2200;
+          font-size: 20px;
+          span{
+            font-size: 14px;
+          }
+        }
+      }
+  }
+  #kitchen_editer{
+    padding: 0;
+    border: 1px solid #e3dcca;
+    border-radius: 5px;
+    background: #ffffff;
+    margin-bottom: 10px;
+    overflow: visible;
+    height: 150px;
+    #two-col-left{
+      width: 610px;
+      margin: 10px 20px;
+      .separate_wrapper{
+        position: relative;
+        h1{
+          margin-bottom: 15px;
+        }
+        .page_title_with_line{
+          color: #2F1C12;
+          font-size: 138.5%;
+          padding: 0px;
+          border-bottom: 1px solid #D6D7B9;
+          font-weight: bold;
+        }
+        p{
+          color: #666;
+          top: 6px;
+          font-size: 85%;
+        }
+        .separate_right{
+          position: absolute;
+          right: 0px;
+          bottom: 10px;
+        }
+      }
+      #account_info{
+        margin-bottom: 20px;
+        #user_icon_wrapper{
+          float: left;
+          width: 50px;
+          margin-right: 10px;
+          margin-bottom: 15px;
+          p{
+            font-size: 85%;
+          }
+        }
+        h2{
+          margin: 0;
+          padding: 0;
+          font-weight: bold;
+        }
+        #nickname{
+          font-size: 131%;
+          color: #2F1C12;
+          margin-bottom: 2px;
+          #link_to_edit_user_name{
+            font-size: 12px;
+            font-weight: normal;
+            color: #845f4b;
+          }
+        }
+        #kitchen_setting{
+          margin-bottom: 3px;
+          .your_kitchen{
+            color: #666;
+            font-size: 93%;
+          }
+          a{
+            color: #845f4b;
+          }
+        }
+        #register_and_update_date{
+          font-size: 85%;
+          color: #666;
+          margin-left: 60px;
+        }
+      }
+    }
+  }
+    #name_editer{
+      padding: 0;
+      border: 1px solid #e3dcca;
+      border-radius: 5px;
+      background: #ffffff;
+      margin-bottom: 10px;
+      overflow: visible;
+      height: 300px;
+      #two-col-left{
+        width: 610px;
+        margin: 10px 20px;
+        .page_title{
+          color: #4d2200;
+          font-size: 138.5%;
+          margin-bottom: 10px;
+          font-weight: bold;
+        }
+        #change_user_name_form{
+          .notice{
+            font-size: 11px;
+            color: #666;
+          }
+          .table_basic{
+            border: 1px solid #e3dcca;
+            margin-bottom: 20px;
+            width: 100%;
+            th{
+              width: 200px;
+              color: #4d2200;
+              background: #eee5cc;
+              border: 1px solid #e3dcca;
+              padding: 6px;
+              font-weight: bold;
+            }
+            td{
+              border: 1px solid #e3dcca;
+              padding: 6px;
+              input{
+                width: 300px;
+                font-size: 108%;
+                line-height: 1.5;
+                padding: 3px 5px;
+                margin: 0 5px 0 0;
+                box-shadow: inset 1px 1px 4px #e6e6e6;
+                border-radius: 3px;
+                box-sizing: border-box;
+                border: 1px solid #cccccc;
+                vertical-align: middle;
+                display: inline-block;
+                font-weight: normal;
+              }
+            }
+          }
+          .block5{
+            padding: 5px;
+          }
+          .center{
+            text-align: center;
+          }
+          .button{
+            padding: 8px 10px;
+            margin: 10px 0;
+            border: 1px solid #cccccc;
+            background: linear-gradient(to bottom, #ffffff, #ececec);
+            border-radius: 5px;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            font-family: inherit;
+            font-weight: bold;
+            min-width: 160px;
+            color: #3c3c3c;
+            text-align: center;
+            vertical-align: middle;
+            text-decoration: none !important;
+            text-shadow: 0 1px 0 #fff;
+          }
+        }
+      }
+    }
 }
