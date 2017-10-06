@@ -562,4 +562,91 @@ html{
         }
       }
     }
+    #create_new_recipe{
+       padding: 0;
+       border: 1px solid #e3dcca;
+       border-radius: 5px;
+       background: #ffffff;
+       margin-bottom: 10px;
+       overflow: visible;
+       height: 300px;
+       #one-col{
+        width: 610px;
+        margin: 10px 20px;
+        .separate_wrapper{
+          position: relative;
+          .page_title_with_line{
+            color: #2F1C12;
+            font-size: 138.5%;
+            padding: 0px;
+            border-bottom: 1px solid #D6D7B9;
+            font-weight: bold;
+            margin-bottom: 20px;
+          }
+          .title_message{
+            color: #2F1C12;
+            font-size: 85%;
+            top: 7px;
+          }
+          .separate_right{
+            position: absolute;
+            right: 0px;
+            bottom: 10px;
+          }
+        }
+        #recipe_create_form{
+          h3{
+            margin-bottom: 5px;
+            font-weight: bold;
+          }
+          .content_title{
+            color: #2F1C12;
+            font-size: 108%;
+            .notice{
+              font-weight: normal;
+              font-size: 11px;
+              color: #666;
+            }
+          }
+          input{
+            line-height: 1.5;
+            padding: 3px 5px;
+            margin: 0 5px 0 0;
+            box-shadow: inset 1px 1px 4px #e6e6e6;
+            border-radius: 3px;
+            box-sizing: border-box;
+            border: 1px solid #cccccc;
+            vertical-align: middle;
+            display: inline-block;
+            font-weight: normal;
+          }
+          #recipe_title_field{
+            font-size: 172%;
+            width: 100%;
+          }
+          .submit{
+            text-align: center;
+            margin-top: 25px;
+            margin-bottom: 40px;
+            .button{
+              padding: 8px 10px;
+              margin: 10px 0;
+              border: 1px solid #cccccc;
+              background: linear-gradient(to bottom, #ffffff, #ececec);
+              border-radius: 5px;
+              box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+              display: inline-block;
+              font-family: inherit;
+              font-weight: bold;
+              min-width: 160px;
+              color: #3c3c3c;
+              text-align: center;
+              vertical-align: middle;
+              text-decoration: none !important;
+              text-shadow: 0 1px 0 #fff;
+            }
+          }
+        }
+       }
+    }
 }
