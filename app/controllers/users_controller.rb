@@ -7,4 +7,7 @@ class UsersController < ApplicationController
 
   def change_user_name
   end
+
+  def update_user_name
+  end
 end
