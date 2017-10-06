@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit] do
     collection do
-      get :user_name
+      get :change_user_name
       get :update_user_name
     end
   end
