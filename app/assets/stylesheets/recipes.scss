@@ -616,3 +616,14 @@ input[type= 'text']{
       }
   }
 }
+#cboxClose{
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  display: block;
+  width: 34px;
+  height: 34px;
+  text-indent: -9999px;
+  float: none;
+  border: none;
+}
