@@ -1,0 +1,71 @@
+#wrapper
+  #container
+    #contents
+      .main650.no_default_main#main
+        .recipe_show_wrapper
+          .block20.box.hrecipe#recipe
+            .links_for_recipe_author
+              .link_to_author_kitchen
+                %a takenoriのレシピ
+              .setting_and_delete_link
+                %a 印刷
+                |
+                %a 削除
+            #recipe-main.clearfix
+              #recipe-title.clearfix
+                .recipe-title.fn.clearfix
+                  #recipe_title_id_in_place_editer.title
+                    aaaa
+              #main-photo.clearfix
+                #recipe_photo_wrapper.clickable_image_uploader_wrapper
+                  %form#recipe_image_form.uploader_form
+                    =image_tag("coffee.jpeg", width: 280, height: 383, class: "uploader")
+              .desc-and-ingredients
+                #description.summary
+                  #recipe_description_userid_in_place_editer.in_place_editor_field
+                    %span.inplaceeditor-empty
+                      クリックしてこのレシピのキャッチコピーを入力
+                  #recipe_author_info_wrapper.right
+                    =image_tag("coffee.jpg", width: 22, height: 22, class: "author_icon")
+                    %a#recipe_author_name.author
+                      takenori
+                #ingredients_wrapper
+                  .link-to-ingredient-list
+                    #ingredients
+                      =image_tag("recipe_sample.png", width: 310, height: 217)
+  #colorbox
+    #cboxWrapper
+      .cboxContent{style: "float: left; width: 460px; height: 432px"}
+        #cboxLoadedContent{style: "width: 450px; overflow: auto; height: 420px; background: rgb(255, 255, 255);"}
+          #ingredients_edit
+            #ingredient_list
+              %form#save-ingredient
+                .serving_container#servings
+                  (
+                  %input{type: "text", name: "serving_for", class: "servings", id: "serving_for", placeholder: "何人分"}
+                  )
+                  %span 例)2人分
+                .clear
+                #list_header.list_header
+                  %span.name 材料・調味料
+                  %span.quantity 分量
+                #edit-ingredients-list.sara_sortable_parent
+                  #ingredient-row.row.sara_sortable.sara_sortable_block
+                    .sortable_line
+                      .sortable_line_inner
+                        =image_tag("drag_icon", class: "drag")
+                        %span.name
+                          %input.text-field.sortable_line_name{type: "text", placeholder: "例) 豚肉"}
+                        %span.quantity
+                          %input.text-field.sortable_line_quantity{type: "text", placeholder: "例) 350g"}
+                        %a
+                          =image_tag("delete_icon.png", class: "delete")
+                .footer_list
+                  .add_ingredient_field
+                    %input.append_line{type: "button", value: "行を追加する"}
+                  .clear
+                .submit.save
+                  #ingredients_submit_button
+                    %input.submit_button{type: "submit", name: "commit", value: "保存して閉じる"}
+
+
