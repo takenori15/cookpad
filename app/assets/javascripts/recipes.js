@@ -42,6 +42,25 @@ var new_process_html = `<div class="step">
                           </dl>
                         </div>
                           `
+var new_ingredient_html = `
+                          <div id="ingredient-row" class="row sara_sortable.sara_sortable_block">
+                            <div class="sortable_line">
+                              <div class="sortable_line_inner">
+                                <img src="/assets/drag_icon" class="drag">
+                                <span class="name">
+                                  <input class="text-field sortable_line_name" type="text" placeholder="例) 豚肉">
+                                </span>
+                                <span class="quantity">
+                                  <input class="text-field sortable_line_quantity" type="text", placeholder="例) 350g">
+                                <a>
+                                  <img src="/assets/delete_icon.png" class="delete">
+                                </a>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          `
+
   $("#recipe_title_id_in_place_editer").editable(option, function(e){
       alert(e.value);
     });
@@ -70,5 +89,11 @@ var new_process_html = `<div class="step">
   });
   $("history").editable(phrase_option, function(e){
     alert(e.value);
+  });
+  $(document).on('click', ".append_line", function(){
+    $("#edit-ingredients-list").append(new_ingredient_html);
+  });
+  $(document).on('click', ".delete", function(){
+    $(this).parents("#ingredient-row").remove();
   });
 });

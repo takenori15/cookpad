@@ -71,6 +71,12 @@
                       %br
                         例）○○番組で紹介されたレシピを、家にある材料で簡単に作れるよう工夫しました
 
+      #side.mykitchen_side_column
+        .draft_box
+          .messages_to_publish
+            %form#confirm_publish_form.edit_recipe
+              %input.button.attention{type: "submit", name: "commit", value: "レシピを公開する"}
+
   #colorbox
     #cboxWrapper
       .cboxContent{style: "float: left; width: 460px; height: 432px"}
