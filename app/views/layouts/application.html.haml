@@ -32,13 +32,23 @@
                     %li#notification_link
                       %a.menu.font12.track_hakari#notification_toggle
                         %span.new_notification_zero 0
+                    %li.login_word
+                      %a.link_to_login ログイン
                     %li.config.user_function_link
                       %a#user_menu_config
+                  .config_dropdown_menu
+                    %ul
+                      %li#user_edit_menu.user_edit
+                        .paid_login_user_free_login_user
+                          %a.user_edit_link 登録情報
+                      %li.help
+                        .help_link ヘルプ
+                      %li.status.logout
+                        .logout_link ログアウト
       .header_container#service_header
         .header_inner
           .default_header
-            .logo
-              =image_tag("logo_header@2x.png", width: 264, height: 54, class: "service_logo")
+            =link_to image_tag("logo_header@2x.png", width: 264, height: 54, class: "service_logo"), root_path, class: 'logo'
             .focus_block.recipe_count_container
               .recipe_count
                 %span.recipe_count_body
@@ -65,7 +75,7 @@
                     =image_tag("icon_myfolder.png", width: 36, height: 36)
                     %span MYフォルダ
                 %li.noseru.recipe_noseru.track_hakari
-                  %a.login_user
+                  =link_to new_recipe_path, class: 'login_user' do
                     %span.button.post_recipe.min
                       =image_tag("menu_post.png", width: 20, height: 17)
                       レシピを書く

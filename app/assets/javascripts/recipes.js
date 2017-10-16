@@ -96,4 +96,7 @@ var new_ingredient_html = `
   $(document).on('click', ".delete", function(){
     $(this).parents("#ingredient-row").remove();
   });
+  $(document).on('click', "#user_menu_config", function(){
+    $(".config_dropdown_menu").toggle();
+  });
 });
