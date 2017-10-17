@@ -32,10 +32,12 @@
                     %li#notification_link
                       %a.menu.font12.track_hakari#notification_toggle
                         %span.new_notification_zero 0
-                    %li.login_word
-                      %a.link_to_login ログイン
-                    %li.config.user_function_link
-                      %a#user_menu_config
+                    -unless user_signed_in?
+                      %li.login_word
+                        =link_to 'ログイン', new_user_session_path, class: 'link_to_login'
+                    -else
+                      %li.config.user_function_link
+                        %a#user_menu_config
                   .config_dropdown_menu
                     %ul
                       %li#user_edit_menu.user_edit
