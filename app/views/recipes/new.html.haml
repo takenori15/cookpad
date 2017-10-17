@@ -1,0 +1,19 @@
+#wrapper
+  #container
+    #contents
+      .main650#main
+        #create_new_recipe
+          #one-col
+            #recipe-post.main-cont
+              .separate_wrapper
+                %h1.page_title_with_line レシピを書く
+                .separate_right.title_message
+                  あなたの家の定番の味、工夫やアイデアをレシピとして記録しよう
+              %form#recipe_create_form
+                %h3.content_title
+                  レシピタイトル
+                  %span.notice
+                    ※後から変更できます
+                %input#recipe_title_field{type: "text", name: "title", placeholder: "例 : 茄子とオクラの酢味噌和え"}
+                .submit
+                  %input#create_recipe_submit.button{type: "submit", name: "commit", value: "材料・作り方の入力に進む"}

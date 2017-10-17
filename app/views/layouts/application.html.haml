@@ -1,0 +1,83 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Cookpad
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .relative_global_header#root_wrapper
+      .wallpaper_wrapper
+      #global_header.header_container.chefs_hat
+        .header_inner
+          .service_menu.f_left.compact_mode
+            %ul.list_inline
+              %li.first
+              %li.service_index
+                %a.service_index_link.service_link
+                  サービス一覧
+          .global_menu.f_right
+            #async-view-global_user_menu.partial-async-view
+              #user_function_wrapper
+                #notification_menu
+                #user_functions
+                  %ul.user_menu.list_inline.mytool
+                    %li.ps_lead
+                      %a.ps_link.track_hakari.track_pslink プレミアムサービス
+                    %li.user_name.user_function_link
+                      %a.user_icon_link.mykitchen_link
+                        %img
+                        takenori
+                    %li#notification_link
+                      %a.menu.font12.track_hakari#notification_toggle
+                        %span.new_notification_zero 0
+                    %li.login_word
+                      %a.link_to_login ログイン
+                    %li.config.user_function_link
+                      %a#user_menu_config
+                  .config_dropdown_menu
+                    %ul
+                      %li#user_edit_menu.user_edit
+                        .paid_login_user_free_login_user
+                          %a.user_edit_link 登録情報
+                      %li.help
+                        .help_link ヘルプ
+                      %li.status.logout
+                        .logout_link ログアウト
+      .header_container#service_header
+        .header_inner
+          .default_header
+            =link_to image_tag("logo_header@2x.png", width: 264, height: 54, class: "service_logo"), root_path, class: 'logo'
+            .focus_block.recipe_count_container
+              .recipe_count
+                %span.recipe_count_body
+                  275
+                  %span.small
+                    万
+                %span.recipe_count_body
+                  %span.small
+                    \レシピ
+            .service_search
+              %form#global_search_form
+                %span.keyword_input
+                  %input{type: "text", name: "keyword", id: "keyword", placeholder: "料理名・食材名", itemprop: "query-input", autocomplete: "off"}
+                %span.cross
+                  =image_tag("search_cross.png")
+                %span.keyword_input
+                  %input{type: "text", name: "purpose", id: "search_purpose", class: "search-field", placeholder: "目的・用途"}
+                %span.keyword_input
+                  %input{type: "submit", name: "commit", value: "レシピ検索", id: "submit_button", class: "button min global_search_submit_btn"}
+            .my_menu
+              %ul.list_inline
+                %li.myfolder
+                  %a.myfolder_link.login_user
+                    =image_tag("icon_myfolder.png", width: 36, height: 36)
+                    %span MYフォルダ
+                %li.noseru.recipe_noseru.track_hakari
+                  =link_to new_recipe_path, class: 'login_user' do
+                    %span.button.post_recipe.min
+                      =image_tag("menu_post.png", width: 20, height: 17)
+                      レシピを書く
+
+      = yield

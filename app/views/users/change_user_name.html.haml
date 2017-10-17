@@ -1,0 +1,24 @@
+#wrapper
+  #container
+    #contents
+      .main650#main
+        #name_editer
+          #two-col-left.kitchen
+            %h1.page_title
+              ニックネームの変更
+            %form#change_user_name_form
+              %p.notice
+                ※３〜１０文字以内。半角記号・スペース・絵文字は使用できません。
+              %table.table_basic#edit_user_name_table
+                %tbody
+                  %tr
+                    %th 現在のニックネーム
+                    %td takenori
+                  %tr
+                    %th 新しいニックネーム
+                    %td
+                      %input#user_name{type: "text"}
+              .block5.center
+                %input.button.submit{type: "submit", name: "commit", value: "ニックネームを変更する"}
+              .block5.center
+                %a 登録情報に戻る
