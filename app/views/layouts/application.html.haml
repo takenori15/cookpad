@@ -28,7 +28,8 @@
                     %li.user_name.user_function_link
                       %a.user_icon_link.mykitchen_link
                         %img
-                        takenori
+                        -if user_signed_in?
+                          =current_user.user_name
                     %li#notification_link
                       %a.menu.font12.track_hakari#notification_toggle
                         %span.new_notification_zero 0
@@ -46,7 +47,7 @@
                       %li.help
                         .help_link ヘルプ
                       %li.status.logout
-                        .logout_link ログアウト
+                        =link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'logout_link'
       .header_container#service_header
         .header_inner
           .default_header
