@@ -63,3 +63,4 @@ end
 gem 'erb2haml'
 gem 'haml-rails'
 gem 'jquery-rails'
+gem 'devise'

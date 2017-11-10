@@ -5,7 +5,7 @@
 |column|type|option|
 |--------|--------|--------|
 |user_name|string|null: false, add_index :users, :user_name, unique: true|
-|icon_image|string|--------|
+|icon_image|text|--------|
 
 ### association
 
