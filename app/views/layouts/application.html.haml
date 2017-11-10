@@ -29,7 +29,7 @@
                       %a.user_icon_link.mykitchen_link
                         %img
                         -if user_signed_in?
-                          =current_user.user_name
+                          =link_to "#{current_user.user_name}", "/users/#{current_user.id}"
                     %li#notification_link
                       %a.menu.font12.track_hakari#notification_toggle
                         %span.new_notification_zero 0
