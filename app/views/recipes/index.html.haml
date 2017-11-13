@@ -8,6 +8,109 @@
               %a レシピ関連サービス
             %ul.services.recipe_services
               %li.recipe
-                %a.analytics_tracking
-                  %span.color_recipe.icf_recipe.icon_font_with_text
-                    %span.service_name みんなのレシピ
+                %a
+                  =image_tag("all_recipes.png", width: 24, height: 19, class: "icon_font_with_text")
+                  %span.service_name みんなのレシピ
+              %li.recipe
+                %a
+                  =image_tag("pro_recipes.png", width: 24, height:19, class: "icon_font_with_text")
+                  %span.service_name プロのレシピ
+              %li.recipe
+                %a
+                  =image_tag("kondate.png", width: 24, height: 19, class: "icon_font_with_text")
+                  %span.service_name 献立
+              %li.recipe
+                %a
+                  =image_tag("movie.png", width: 24, height: 19, class: "icon_font_with_text")
+                  %span.service_name 料理動画
+              %li.recipe
+                %a
+                  =image_tag("cook.png", width: 24, height: 19, class: "icon_font_with_text")
+                  %span.service_name 話題のキッチン
+            %h3.title_bar.border_top
+              %a プレミアムサービス
+            .premium
+              %ul.services
+                %li.recipe
+                  %a
+                    =image_tag("kanmuri.png", width: 24, height: 19, class: "icon_font_with_text")
+                    %span.service_name 人気順検索
+                %li.recipe
+                  %a
+                    =image_tag("123.png", width: 24, height: 19, class: "icon_font_with_text")
+                    %span.service_name レシピランキング
+                %li.recipe
+                  %a
+                    =image_tag("dendou.png", width: 24, height: 19, class: "icon_font_with_text")
+                    %span.service_name 殿堂入りレシピ
+                %li.recipe
+                  %a
+                    =image_tag("senmon.png", width: 24, height: 19, class: "icon_font_with_text")
+                    %span.service_name 専門家厳選レシピ
+                %li.recipe
+                  %a
+                    =image_tag("prekondate.png", width: 24, height: 19, class: "icon_font_with_text")
+                    %span.service_name プレミアム献立
+              .more_link
+                %a もっと見る
+            %h3.title_bar.life_service_list_title
+              %a 生活関連サービス
+            .life_services
+              %ul.services
+                %li.recipe
+                  %a
+                    =image_tag("news_image.png", width: 24, height: 19, class: "icon_font_with_text")
+                    %span.service_name 料理ニュース
+                %li.recipe
+                  %a
+                    =image_tag("kyousitu.png", width: 24, height: 19, class: "icon_font_with_text")
+                    %span.service_name 料理教室
+                %li.recipe
+                  %a
+                    =image_tag("naraigoto.png", width: 24, height: 19, class: "icon_font_with_text")
+                    %span.service_name 習い事
+              .more_link
+                %a もっと見る
+          .right_container.pickup_contents
+            .inner
+              .pickup_recipe_wrapper
+                .pickup_image
+                  %a
+                    =image_tag("kiribosi.png", width: 447, height: 251, class: "pickup_recipe_photo")
+                .pickup_recipe_info
+                  .date
+                    %span 11
+                    月
+                    %span 11
+                    日
+                    %br
+                    おすすめ
+                  .recipe_text
+                    %a
+                      %span.recipe_title 切り干しだいこん
+                      %span.user_name tanaka tarou
+              .cookpad_news
+                %h3.title_right
+                  %a ニュース
+                %ul.latest_articles
+                  %li.feature
+                    %a.mediabox
+                      .media_object
+                        =image_tag("udon.png", width: 100, height: 100, class: "media_object_image" )
+                      .media_body
+                        .article_title 山梨ケンミン熱愛！吉田のうどん
+                        .article_description
+                          %span.lead 11/9放映の「秘密のケンミンshow」で紹介された、山梨ケンミン熱愛の「吉田のうどん」をチェック！
+                  %li.odd.topic
+                    %a りんご＆さつまいもチーズケーキ
+                  %li.even.topic
+                    %a レンジ２分！チンゲン菜のおひたし
+                  %li.odd.topic
+                    %a レンジで作る「パラパラ炒飯」！
+                  %li.even.topic
+                    %a 柿の「種」が楽に取れる裏技！
+                .more_link
+                  %a もっと見る
+        .spotlight_panel
+        .recipe_box
+          %h2.title_border レシピ

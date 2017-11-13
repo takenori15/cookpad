@@ -334,12 +334,13 @@ input[type= 'text']{
         li.recipe{
           padding-top: 6px;
           a{
+            height: 25px;
             display: block;
             padding-left: 8px;
             line-height: 33px;
             color: #330000;
             .icon_font_with_text{
-              vertical-align: -2px;
+              vertical-align: -5px;
               letter-spacing: -3px;
             }
           }
@@ -739,5 +740,162 @@ input[type= 'text']{
     text-decoration: none !important;
     text-shadow: 0 1px 0 #fff;
     cursor: pointer;
+  }
+}
+
+.border_top{
+  border-top: 1px solid #e8e2d6;
+}
+.title_bar{
+  font-size: 100%;
+  background: #f8f6f0;
+  clear: both;
+  color: #3c3c3c;
+  padding-left: 12px;
+  padding: 5px 3px 3px 10px;
+}
+
+.more_link{
+  padding: 0 10px 7px 0;
+  text-align: right;
+  a{
+    color: #845f4b;
+    font-size: 86%;
+    font-weight: bold;
+  }
+}
+
+.right_container{
+  float: right;
+  width: 478px;
+  .inner{
+    border-left: 1px solid #e8e2d6;
+    padding-bottom: 0;
+    .pickup_recipe_wrapper{
+      position: relative;
+      padding: 15px;
+      .pickup_recipe_photo{
+        opacity: 0.9;
+        vertical-align: middle;
+        border-radius: 5px;
+      }
+      .pickup_recipe_info{
+        margin-top: 10px;
+          &:after{
+            content: "";
+            display: block;
+            clear: both;
+          }
+        .date{
+          font-size: 86%;
+          float: left;
+          border-radius: 4px;
+          background: #ff9933;
+          color: #ffffff;
+          font-weight: bold;
+          width: 90px;
+          margin-right: 10px;
+          padding: 5px;
+          text-align: center;
+        }
+        .recipe_text{
+          float: left;
+          width: 330px;
+          .recipe_title{
+            font-size: 129%;
+            margin-bottom: 3px;
+            color: #889b00;
+            font-weight: bold;
+          }
+          .user_name{
+            color: #666666;
+            padding-left: 4px;
+            text-decoration: none;
+            white-space: nowrap;
+            font-size: 93%;
+          }
+        }
+      }
+    }
+    .title_right{
+      font-size: 100%;
+      background: #f8f6f0;
+      clear: both;
+      color: #3c3c3c;
+      padding-left: 12px;
+      padding: 5px 3px 3px 10px;
+      font-weight: bold;
+    }
+    .latest_articles{
+      padding: 15px 10px 0 15px;
+      list-style: none;
+      &:after{
+        content: "";
+        display: block;
+        clear: both;
+      }
+      .feature{
+        width: 100%;
+        margin-bottom: 15px;
+        float: none;
+        .mediabox{
+          &:after{
+            content: "";
+            display: block;
+            clear: both;
+          }
+          .media_object{
+            margin-right: 10px;
+            float: left;
+            .media_object_image{
+              vertical-align: middle;
+              border-radius: 5px;
+            }
+          }
+          .media_body{
+            overflow: hidden;
+            zoom: 1;
+            .article_title{
+              font-size: 143%;
+              font-weight: bold;
+              margin-bottom: 10px;
+            }
+            .article_description{
+              color: #666666;
+              .lead{
+                font-size: 93%;
+                line-height: 170%;
+              }
+            }
+          }
+        }
+      }
+      .topic{
+        font-size: 93%;
+        float: left;
+        width: 50%;
+        margin-bottom: 6px;
+      }
+    }
+  }
+}
+.spotlight_panel{
+  margin-bottom: 10px;
+}
+.recipe_box{
+  border-top: 6px solid #889b00;
+  border-radius: 5px;
+  background: #ffffff;
+  border: 1px solid #ded5c0;
+  .title_border{
+    color: #889b00;
+    font-size: 158%;
+    border-bottom: 1px solid #e8e2d6;
+    font-weight: normal;
+    margin-bottom: 0;
+    padding-left: 10px;
+    padding-bottom: 8px;
+    margin: 10px 0;
+    position: relative;
   }
 }
