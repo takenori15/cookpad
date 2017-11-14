@@ -114,3 +114,49 @@
         .spotlight_panel
         .recipe_box
           %h2.title_border レシピ
+          .clearfix
+            .left_content.ranking_recipes
+              .not_login_user.free_login_user
+                %h3.title_bar_access
+                  %a デイリーアクセス数ランキング
+                %a
+                  %ul.for_non_ps
+                    %li.first_recipe
+                      =image_tag("ichiban.png", width: 40, height: 40, class: "crown")
+                      .image
+                        =image_tag("kiribosi.png", width: 198, height: 198, class: "top_recipe_img")
+                    %li.second_recipe
+                      =image_tag("niban.png", width: 40, height: 40, class: "crown")
+                      .image
+                        =image_tag("udon.png", width: 94, height: 94, class: "top_recipe_img")
+                    %li.third_recipe
+                      =image_tag("sanban.png", width: 40, height: 40, class: "crown")
+                      .image
+                        =image_tag("coffee.jpeg", width: 94, height: 94, class: "top_recipe_img")
+                  .lead_to_about
+                    %span.focus_text みんなが見た人気のレシピ２０品
+            .right_content_hot_recipes
+              .inner
+                %h3.hot_title_bar
+                  %a 話題のレシピ
+                  %span.description つくれぽ１０人おめでとう！
+                .hot_recipes_inner
+                  .partial-async-view
+                    %ul
+                      %li.popular_recipe
+                        %a
+                          =image_tag("suko-n.png", width: 94, height: 94, class: "pop_recipe_img")
+                          %span.pop_recipe_title パリッパリ！手が止まらないスコーン♪
+                          %span.pop_user_name hanako
+                      %li.popular_recipe
+                        %a
+                          =image_tag("akai_udon.png", width: 94, height: 94, class: "pop_recipe_img")
+                          %span.pop_recipe_title 赤いうどん
+                          %span.pop_user_name satou
+                      %li.popular_recipe.last
+                        %a
+                          =image_tag("oniku.png", width: 94, height: 94, class: "pop_recipe_img")
+                          %span.pop_recipe_title ハンバーグをリメイク！
+                          %span.pop_user_name tokumei-san
+                    .more_link
+                      %a もっと見る
