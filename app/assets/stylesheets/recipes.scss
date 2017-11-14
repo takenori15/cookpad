@@ -1040,3 +1040,113 @@ input[type= 'text']{
     }
   }
 }
+.honor_title_border_top{
+  border-top: 1px solid #e8e2d6;
+  font-size: 100%;
+  background: #f8f6f0;
+  clear: both;
+  color: #3c3c3c;
+  padding: 5px 3px 3px 12px;
+  position: relative;
+  font-weight: bold;
+}
+.honor_recipe{
+  width: 628px;
+  text-align: left;
+  font-weight: normal;
+  border-top: none;
+  margin: 0 10px;
+  padding: 10px 0;
+  &:after{
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .text{
+    float: left;
+    line-height: 72px;
+    .balloon_message{
+      color: #ff6600;
+      font-size: 115%;
+      font-weight: bold;
+    }
+    .balloon_focus{
+      font-size: 115%;
+      font-weight: bold;
+    }
+  }
+  .images{
+    width: 216px;
+    float: right;
+    .honor_recipe_img{
+      border-radius: 5px;
+      vertical-align: middle;
+    }
+  }
+}
+.recipe_category_title_bar{
+  border-top: 1px solid #e8e2d6;
+  font-size: 100%;
+  background: #f8f6f0;
+  clear: both;
+  color: #3c3c3c;
+  padding: 5px 3px 3px 12px;
+  position: relative;
+  font-weight: bold;
+}
+.category_clearfix{
+  zoom: 1;
+  &:after{
+    clear: both;
+    display: block;
+    content: "";
+  }
+}
+.regular_categories{
+  padding: 10px 0 0 15px;
+  ul{
+    zoom: 1;
+    &:after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+    .category{
+      float: left;
+      width: 33%;
+      margin-bottom: 25px;
+      &:after{
+        content: "";
+        display: block;
+        clear: both;
+      }
+      .category_icon{
+        margin-right: 10px;
+        float: left;
+        a{
+          display: block;
+          width: 40px;
+          height: 40px;
+        }
+      }
+      .media_body{
+        overflow: hidden;
+        zoom: 1;
+        .category_title{
+          font-size: 115%;
+          font-weight: bold;
+        }
+        .subcategories{
+          font-size: 86%;
+          margin-top: 5px;
+          li{
+            margin-bottom: 2px;
+          }
+        }
+      }
+    }
+    .last{
+      margin-bottom: 0;
+    }
+  }
+}
