@@ -333,3 +333,286 @@
                         %a 蒸しパン
               .more_link
                 %a もっと見る
+            .clearfix
+              .left_content_premium_categories
+                .title_bar_gensen
+                  %a 専門家レシピ
+                %ul.clearfix
+                  %li.odd
+                    %a
+                      =image_tag("biyou.png", width: 35, height: 25, class: "gensen_img")
+                      %span 美容ダイエット
+                  %li.even
+                    %a
+                      =image_tag("hataraku.png", width: 35, height: 25, class: "gensen_img")
+                      %span 働くママ
+                  %li.odd
+                    %a
+                      =image_tag("jouzu.png", width: 35, height: 25, class: "gensen_img")
+                      %span 料理上手
+                  %li.even
+                    %a
+                      =image_tag("babyandmama.png", width: 35, height: 25, class: "gensen_img")
+                      %span ベビー＆ママ
+                  %li.odd
+                    %a
+                      =image_tag("sport.png", width: 35, height: 25, class: "gensen_img")
+                      %span スポーツ・体づくり
+                  %li.even
+                    %a
+                      =image_tag("kids.png", width: 35, height: 25, class: "gensen_img")
+                      %span キッズ
+                  %li.odd
+                    %a
+                      =image_tag("karada.png", width: 35, height: 25, class: "gensen_img")
+                      %span からだケア
+                  %li.even
+                    %a
+                      =image_tag("otoko.png", width: 35, height: 25, class: "gensen_img")
+                      %span 男の料理
+              .right_content_pro_recipes
+                .inner
+                  %h3.title_bar_pro_recipes
+                    %a プロのレシピ
+                  %ul
+                    %li.recipe_set
+                      %a
+                        =image_tag("tyuuka.png", width: 80, height: 80, class: "pro_recipe_img")
+                        .media_body
+                          .user_name 鈴木一郎
+                          .set_title 家庭で作れる！本格中華料理
+                    %li.recipe_set
+                      %a
+                        =image_tag("special_menu.png", width: 80, height: 80, class: "pro_recipe_img")
+                        .media_body
+                          .user_name 今井二郎
+                          .set_title ホームパーティーに最適なおもてなしレシピ！
+          %h3.title_bar_favorite_kitchen
+            %a 話題のキッチン
+            %span.description お気に入りのキッチンを探そう！
+          %ul.hot_users
+            %li
+              %a
+                .image
+                  =image_tag("usagi-san.png", width: 80, height: 80, class: "favorite_kitchen_img")
+                .user_name usagi-san
+            %li
+              %a
+                .image
+                  =image_tag("farmer.png", width: 80, height: 80, class: "favorite_kitchen_img")
+                .user_name toaru-farmer
+            %li
+              %a
+                .image
+                  =image_tag("inabe.png", width: 80, height: 80, class: "favorite_kitchen_img")
+                .user_name いなべ市
+            %li
+              %a
+                .image
+                  =image_tag("kyouto.png", width: 80, height: 80, class: "favorite_kitchen_img")
+                .user_name 京都府
+            %li
+              %a
+                .image
+                  =image_tag("hokkaido.png", width: 80, height: 80, class: "favorite_kitchen_img")
+                .user_name 北海道
+            %li
+              %a
+                .image
+                  =image_tag("kyoku.png", width: 80, height: 80, class: "favorite_kitchen_img")
+                .user_name キョク
+            %li.last
+              %a
+                .image
+                  =image_tag("saitama.png", width: 80, height: 80, class: "favorite_kitchen_img")
+                .user_name 埼玉県
+          .kitchen_topics
+            %ul
+              %li
+                %a 小腹が空いたらすぐでき餃子ピザ♪
+                %span.badge_hot NEW
+              %li
+                %a 汁物にも！桜エビのだしが超使える
+                %span.badge_hot NEW
+              %li
+                %a ちょい辛みが旨すぎる！鯖で作るサモサ
+              %li
+                %a 味噌でいただくあっさり和風コンフィ
+              %li
+                %a 子供ウケよし♪豚こまが立派な唐揚げに
+              %li
+                %a 洋風ソースも合う合う！塩鮭アレンジ
+            .more_link
+              %a もっと見る
+        .kondate_box
+          %h2.title_border 献立
+          .left_content_user_kondates
+            %h3.title_border_everyone_kondates
+              %a みんなの献立
+            .clearfix.block10
+              .kondate
+                %a
+                  .kondate_image
+                    =image_tag("colorful_morning.png", width: 140, height: 100, class: "kon_img")
+                  .kondate_body
+                    .kondate_title カラフルな朝食作ってみた！
+                    .user_name kondou
+              %ul.kondate_categories
+                %li
+                  %a
+                    =image_tag("asa_taiyou.png", width: 30, height: 30, class: "kon_cate_img")
+                    %span 朝ごはん
+                %li
+                  %a
+                    =image_tag("ohiru.png", width: 30, height: 30, class: "kon_cate_img")
+                    %span 昼ごはん
+                %li.last
+                  %a
+                    =image_tag("yoru.png", width: 30, height: 30, class: "kon_cate_img")
+                    %span 夜ごはん
+          .right_content_premium_kondates
+            .inner
+              %h3.title_border_premium_kondates
+                %a プレミアム献立
+              .clearfix.block10
+                .kondate
+                  %a
+                    .kondate_image
+                      =image_tag("yasai_itame.png", width: 140, height: 100, class: "kon_img")
+                    .kondate_body
+                      .kondate_title 色鮮やかな炒め物
+                      .user_name tokumei-chef
+                %ul.kondate_categories
+                  %li
+                    %a
+                      =image_tag("futoranai.png", width: 30, height: 30, class: "kon_cate_img")
+                      %span 太らない
+                  %li
+                    %a
+                      =image_tag("speed.png", width: 30, height: 30, class: "kon_cate_img")
+                      %span スピード
+                  %li.last
+                    %a
+                      =image_tag("tyokin.png", width: 30, height: 30, class: "kon_cate_img")
+                      %span 節約
+        .news_box#orange_border
+          %h2.title_border ニュース
+          .left_news
+            %h3.news_bar
+              %a 最新アクセスランキング
+            .ranking_box
+              %ul.ranking
+                %li.feature.clearfix
+                  %a
+                    .news_image
+                      =image_tag("oseti.png", width: 60, height: 60, class: "news_icon_img")
+                    .news_body
+                      %span.rank
+                        =image_tag("ichiban.png", width: 20, height: 20, class: "news_crown")
+                      %span.news_article_title ヒルナンデスで紹介のおせち料理
+                %li
+                  %span.next_rank
+                    =image_tag("niban.png", width: 20, height: 20, class: "news_crown")
+                  %a 大人気！チーズタッカルビ
+                %li
+                  %span.next_rank
+                    =image_tag("sanban.png", width: 20, height: 20, class: "news_crown")
+                  %a 魅惑のエンジェルフードケーキ
+                %li
+                  %span.next_rank
+                    4位
+                  %a 白菜の照り焼きが甘辛うまい！
+                %li
+                  %span.next_rank
+                    5位
+                  %a 缶詰活用でおしゃれ家飲み♪
+              .more_link
+                %a もっと見る
+          .right_news
+            .inner
+              %h3.news_bar
+                %a 週間アクセスランキング
+              .ranking_box
+                %ul.ranking
+                  %li.feature.clearfix
+                    %a
+                      .news_image
+                        =image_tag("oseti.png", width: 60, height: 60, class: "news_icon_img")
+                      .news_body
+                        %span.rank
+                          =image_tag("ichiban.png", width: 20, height: 20, class: "news_crown")
+                        %span.news_article_title ヒルナンデスで紹介のおせち料理
+                  %li
+                    %span.next_rank
+                      =image_tag("niban.png", width: 20, height: 20, class: "news_crown")
+                    %a リピ続出の簡単りんごクッキー
+                  %li
+                    %span.next_rank
+                      =image_tag("sanban.png", width: 20, height: 20, class: "news_crown")
+                    %a ジャガイモのサクサク焼き
+                  %li
+                    %span.next_rank
+                      4位
+                    %a 厚揚げのおろし煮があと一品！
+                  %li
+                    %span.next_rank
+                      5位
+                    %a 大人気！簡単チーズタッカルビ
+                .more_link
+                  %a もっと見る
+        .lesson_box#purple_border
+          %h2.lesson_border 習い事
+          .left_cooksteps
+            %h3.cookstep_bar
+              %a クックパッド料理教室
+            .lessons
+              %a.hot_cookstep
+                .cookstep_media
+                  =image_tag("christmas.png", width: 140, height: 100, class: "cookstep_img")
+                .cookstep_body
+                  .cookstep_content_title 【千葉】手作りクリスピーフライドチキンでクリスマス
+                  .address JR常盤線（上野〜取手）
+              %ul.sub_content
+                %li
+                  %a 【東京】ヘルシー！揚げないドーナツと…
+                %li
+                  %a 【東京】今年はこれ！簡単クリスマスメ…
+          .right_cyta
+            .inner
+              %h3.cookstep_bar
+                %a 習い事・趣味から資格習得までサイタ
+              .lessons
+                .hot_cookstep
+                  .cookstep_media
+                    =image_tag("sikaku.png", width: 140, height: 100, class: "cookstep_img")
+                  %ul.cyta_lessons
+                    %li
+                      %a 英会話
+                    %li
+                      %a 韓国語
+                    %li
+                      %a Illstrator講座
+                    %li
+                      %a ギター
+                    %li
+                      %a ピアノ
+                    %li
+                      %a ランニング
+                    %li
+                      %a ドラム
+                    %li
+                      %a 日商簿記
+                %ul.sub_content
+                  %li
+                    %a １回からお試しOK！プライベートコーチを探す
+                  %li
+                    %a レッスンジャンルを見る
+        .device_box#gray_border
+          %h2.device_title_border いつでもどこでも使える
+          .device_block
+            %a.device_media_box
+              =image_tag("device_sample.png", width: 173, height: 97, class: "device_sample")
+              .device_body
+                %p パソコンだけでなく、iPhoneやAndroidなどからもクックパッドをご利用いただけます。
+                %p キッチンはもちろん、リビングや外出先など様々な場所で毎日の料理をお楽しみください！
+
