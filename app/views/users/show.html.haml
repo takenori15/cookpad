@@ -8,8 +8,18 @@
             .user_icon
               %a
                 =image_tag("coffee.jpeg", class: "user_kitchen_icon")
-              .setting_link
+              .setting_link#icon_modal_open
                 %a.colorbox_link 変更
             .user_name
               #{current_user.user_name}
               %span のキッチン
+#user_page_icon_modal_content
+  .inner
+    %h2.page_title 写真を変更する
+    %p.icon_message 掲載したい写真を選んで、決定ボタンを押してください。
+    #upload-form
+      %form
+        %input{size: "28", type: "file", id: "user_uploaded_photo"}
+      %p.submit
+        %input{type: "submit", value: "決定"}
+
