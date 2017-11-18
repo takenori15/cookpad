@@ -677,3 +677,29 @@ html{
     }
   }
 }
+
+.user_kitchen_icon{
+  width: 90px;
+  height: 90px;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+.setting_link{
+  display: none;
+  width: 90px;
+  bottom: 4px;
+  left: 4px;
+  border-radius: 0 0 4px 4px;
+  font-size: 13px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  line-height: 20px;
+  cursor: pointer;
+}
+.colorbox_link{
+  color: #ffffff;
+  text-decoration: underline;
+  font-size: 13px;
+  text-align: center;
+}

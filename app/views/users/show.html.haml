@@ -6,6 +6,10 @@
           #header_image_wrapper
           .header_bottom
             .user_icon
+              %a
+                =image_tag("coffee.jpeg", class: "user_kitchen_icon")
+              .setting_link
+                %a.colorbox_link 変更
             .user_name
               #{current_user.user_name}
               %span のキッチン
