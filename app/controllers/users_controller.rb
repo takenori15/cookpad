@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   def change_user_name
+    @user = User.find(params[:id])
   end
 
   def update_user_name
@@ -20,6 +21,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:icon_image)
+    params.require(:user).permit(:icon_image, :user_name)
   end
 end

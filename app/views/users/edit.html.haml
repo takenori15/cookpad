@@ -16,8 +16,7 @@
                     %a.colorbox_link 変更する
                 %h2#nickname
                   #{@user.user_name}
-                  %a#link_to_edit_user_name
-                    (変更する)
+                  =link_to '(変更する)', change_user_name_user_path, id: "link_to_edit_user_name"
                 %p#kitchen_setting
                   %span.your_kitchen
                     あなたのキッチン :

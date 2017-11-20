@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "recipes#index"
 
   resources :users, only: [:show, :edit, :update] do
-    collection do
+    member do
       get :change_user_name
       get :update_user_name
     end
