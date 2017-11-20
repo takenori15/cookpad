@@ -7,9 +7,13 @@
           .header_bottom
             .user_icon
               %a
-                =image_tag("#{@user.icon_image.thumb.url}", class: "user_kitchen_icon")
-              .setting_link.icon_modal_open
-                %a.colorbox_link 変更
+                -if @user.icon_image.present?
+                  =image_tag("#{@user.icon_image.thumb.url}", class: "user_kitchen_icon")
+                -else
+                  =image_tag("default_icon.png", class: "user_kitchen_icon")
+              -if user_signed_in? && @user.id == current_user.id
+                .setting_link.icon_modal_open
+                  %a.colorbox_link 変更
             .user_name
               #{@user.user_name}
               %span のキッチン

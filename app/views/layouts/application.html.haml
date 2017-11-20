@@ -43,7 +43,10 @@
                     %ul
                       %li#user_edit_menu.user_edit
                         .paid_login_user_free_login_user
-                          =link_to "登録情報", edit_user_path(current_user.id), class: "user_edit_link"
+                          -if user_signed_in?
+                            =link_to "登録情報", edit_user_path(current_user.id), class: "user_edit_link"
+                          -else
+                            p.user_edit_link 登録情報
                       %li.help
                         .help_link ヘルプ
                       %li.status.logout
