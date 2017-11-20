@@ -6,7 +6,7 @@
           #two-col-left.kitchen
             %h1.page_title
               ニックネームの変更
-            %form#change_user_name_form
+            =form_for @user do |f|
               %p.notice
                 ※３〜１０文字以内。半角記号・スペース・絵文字は使用できません。
               %table.table_basic#edit_user_name_table
@@ -17,8 +17,9 @@
                   %tr
                     %th 新しいニックネーム
                     %td
-                      %input#user_name{type: "text"}
+                      =f.text_field :user_name, id: "user_name"
               .block5.center
-                %input.button.submit{type: "submit", name: "commit", value: "ニックネームを変更する"}
+                =f.submit "ニックネームを変更する", class: "button submit"
               .block5.center
-                %a 登録情報に戻る
+                =link_to ,"登録情報に戻る"
+                /%a 登録情報に戻る
