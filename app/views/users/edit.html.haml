@@ -25,9 +25,9 @@
                     #{@user.user_name}のキッチン
                 %p#register_and_update_date
                   登録日:
-                  = l(@user.created_at, format: :short)
+                  = l Date.parse(@user.created_at.to_s, format: :short)
                   更新日:
-                  = l(@user.updated_at, format: :short)
+                  = l Date.parse(@user.updated_at.to_s, format: :short)
 #user_page_icon_modal_content
   .inner
     %h2.page_title 写真を変更する
