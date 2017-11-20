@@ -7,7 +7,7 @@
           .header_bottom
             .user_icon
               %a
-                =image_tag("#{@user.icon_image}", class: "user_kitchen_icon")
+                =image_tag("#{@user.icon_image.thumb.url}", class: "user_kitchen_icon")
               .setting_link#icon_modal_open
                 %a.colorbox_link 変更
             .user_name
