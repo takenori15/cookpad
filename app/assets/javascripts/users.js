@@ -7,7 +7,7 @@ $(function(){
   });
 });
 $(function(){
-  $("#icon_modal_open").click(
+  $(".icon_modal_open").click(
     function(){
       $(this).blur();
       if($("#user_page_overlay")[0]) return false;
