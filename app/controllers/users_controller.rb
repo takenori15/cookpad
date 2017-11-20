@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   end
 
   def update_user_name
+    current_user.update(user_params)
   end
 
   private
