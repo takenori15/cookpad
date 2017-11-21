@@ -1,0 +1,122 @@
+#sign_up_wrapper{
+  text-align: center;
+  width: 970px;
+  min-width: 970px;
+  margin: 0px auto;
+  &:after{
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+#sign_up_container{
+  text-align: left;
+  width: 970px;
+  margin: 0 auto;
+}
+#sign_up_contents{
+  padding-bottom: 1px;
+  margin-bottom: 24px;
+}
+#sign_up_main{
+  float: left;
+  width: 650px;
+}
+#sign_up_main.main970{
+  width: 970px;
+  float: none;
+  border: 1px solid #e3dcca;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+#user_register{
+  .title_border{
+    font-size: 19px;
+    padding: 10px 0 15px 20px;
+    border-bottom: 1px solid #e3dcca;
+    font-weight: bold;
+    position: relative;
+    color: #4d2200;
+  }
+}
+#main_form{
+  width: 650px;
+  float: left;
+}
+.register_form_container{
+  padding: 20px 0 0 20px;
+}
+table{
+  width: 60%;
+  border-collapse: collapse;
+}
+.sign_up_table_border{
+  margin-bottom: 20px;
+}
+tr{
+  border-bottom: #f2eee6 1px solid
+}
+th{
+  width: 20%;
+  padding: 6px;
+  background: #ffffff;
+  white-space: nowrap;
+  .icon_lock{
+    vertical-align: middle;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    line-height: 16px;
+  }
+}
+.login_info{
+  th{
+    font-weight: bold;
+    background: #faf9f4;
+    padding: 10px;
+    em{
+      font-size: 83%;
+    }
+  }
+}
+td{
+  padding: 10px;
+  .sign_up_notice{
+    font-size: 72%;
+    font-weight: normal;
+    margin-top: 5px;
+  }
+  .inner{
+    display: inline;
+    position: relative;
+  }
+  .customized_cp_devise_form{
+    width: 260px;
+    border-color: #999999 #E0E0E0 #E0E0E0 #999999;
+    border-width: 1px;
+    border-style: solid;
+    padding: 4px;
+    font-size: 123%;
+    border-radius: 3px;
+  }
+}
+.sign_up_button{
+  margin-bottom: 0;
+  text-align: center;
+  .attention_button{
+    padding: 12px 30px;
+    text-shadow: 0 -1px 0 #bd4b00;
+    border: 1px solid #cc5200;
+    background: linear-gradient(to bottom, #ff8a24, #f06000);
+    color: #ffffff !important;
+    margin: 10px 0 30px 0;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    font-weight: bold;
+    min-width: 160px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none !important;
+    cursor: pointer;
+  }
+}

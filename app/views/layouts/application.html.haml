@@ -26,13 +26,16 @@
                     %li.ps_lead
                       %a.ps_link.track_hakari.track_pslink プレミアムサービス
                     %li.user_name.user_function_link
-                      %a.user_icon_link.mykitchen_link
-                        %img
-                        -if user_signed_in?
+                      -if user_signed_in?
+                        %a.user_icon_link.mykitchen_link
+                          %img
                           =link_to "#{current_user.user_name}", "/users/#{current_user.id}"
-                    %li#notification_link
-                      %a.menu.font12.track_hakari#notification_toggle
-                        %span.new_notification_zero 0
+                      -else
+                        =link_to "ユーザー登録（無料）", new_user_registration_path
+                    -if user_signed_in?
+                      %li#notification_link
+                        %a.menu.font12.track_hakari#notification_toggle
+                          %span.new_notification_zero 0
                     -unless user_signed_in?
                       %li.login_word
                         =link_to 'ログイン', new_user_session_path, class: 'link_to_login'
