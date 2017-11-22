@@ -38,7 +38,7 @@
                           %span.new_notification_zero 0
                     -unless user_signed_in?
                       %li.login_word
-                        =link_to 'ログイン', new_user_session_path, class: 'link_to_login'
+                        %a.link_to_login ログイン
                     -else
                       %li.config.user_function_link
                         %a#user_menu_config
@@ -94,27 +94,27 @@
                       %span.button.post_recipe.min
                         =image_tag("menu_post.png", width: 20, height: 17)
                         レシピを書く
-      #login_overlay
-        #login_colorbox
-          #login_wrapper
-            %div{style: "clear: left;"}
-              #login_content
-                #login_loaded_content
-                  .inner_login_wrapper
-                    %h2.login_content_title
-                      %span.login_bold ログイン
-                    .login_form
-                      =form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "hidden_login_form"}) do |f|
-                        =f.label :email, "メールアドレス"
-                        =f.email_field :email, autofocus: true
-                        =f.label :password, "パスワード"
-                        =f.password_field :password, autocomplete: "off"
-                        .center_login
-                          =f.submit "ログイン", class: "login_button"
-                      .register_account_wrapper
-                        %h2.login_content_title.for_no_id_user
-                          %span.login_bold ユーザー登録されていない方
-                        .register_account_box
-                          =link_to "クックパッドユーザー登録（無料）", new_user_registration_path, class: "new_account_button"
+
+      #login_colorbox
+        #login_wrapper
+          %div{style: "clear: left;"}
+            #login_content
+              #login_loaded_content
+                .inner_login_wrapper
+                  %h2.login_content_title
+                    %span.login_bold ログイン
+                  .login_form
+                    =form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "hidden_login_form"}) do |f|
+                      =f.label :email, "メールアドレス"
+                      =f.email_field :email, autofocus: true
+                      =f.label :password, "パスワード"
+                      =f.password_field :password, autocomplete: "off"
+                      .center_login
+                        =f.submit "ログイン", class: "login_button"
+                    .register_account_wrapper
+                      %h2.login_content_title.for_no_id_user
+                        %span.login_bold ユーザー登録されていない方
+                      .register_account_box
+                        =link_to "クックパッドユーザー登録（無料）", new_user_registration_path, class: "new_account_button"
 
       = yield
