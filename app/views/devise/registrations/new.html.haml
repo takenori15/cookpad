@@ -1,0 +1,51 @@
+#sign_up_wrapper
+  #sign_up_container
+    #sign_up_contents
+      #sign_up_main.main970
+        #user_register
+          .sign_up_page_header
+            %h1.title_border クックパッドにユーザー登録（無料）する
+          =form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+            #register_main
+              .register_form_container
+                %table.sign_up_table_border.su_th_color
+                  %tbody
+                    %tr.login_label
+                      %th{colspan: "2"}
+                        .icon_lock
+                          =image_tag("lock.png", width: 16, height: 16)
+                          ログインに関する情報
+                    %tr.login_info
+                      %th
+                        =f.label :user_name, 'ユーザー名'
+                        %em （１０文字以下）
+                      %td
+                        .field
+                          .inner
+                            =f.text_field :user_name, autofocus: true, maxlength: "10", class: "customized_cp_devise_form"
+                    %tr.login_info
+                      %th
+                        =f.label :email, 'メールアドレス'
+                      %td
+                        .field
+                          .inner
+                            =f.email_field :email, autofocus: true, class: "customized_cp_devise_form"
+                        %p.sign_up_notice ※メールアドレスはログインに使用します。
+                    %tr.login_info
+                      %th
+                        =f.label :password, 'パスワード'
+                      %td
+                        .field
+                          .inner
+                            =f.password_field :password, autocomplete: "off", class: "customized_cp_devise_form"
+                        -if @minimum_password_length
+                          %em.sign_up_notice (#{@minimum_password_length}文字以上で作成してください。)
+                    %tr.login_info
+                      %th
+                        =f.label :password_confirmation, 'パスワード（確認）'
+                      %td
+                        .field
+                          .inner
+                            =f.password_field :password_confirmation, autocomplete: "off", class: "customized_cp_devise_form"
+            .sign_up_button
+              =f.submit value: "同意して確認画面に進む", class: "attention_button"

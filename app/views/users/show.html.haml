@@ -6,6 +6,24 @@
           #header_image_wrapper
           .header_bottom
             .user_icon
+              %a
+                -if @user.icon_image.present?
+                  =image_tag("#{@user.icon_image.thumb.url}", class: "user_kitchen_icon")
+                -else
+                  =image_tag("default_icon.png", class: "user_kitchen_icon")
+              -if user_signed_in? && @user.id == current_user.id
+                .setting_link.icon_modal_open
+                  %a.colorbox_link 変更
             .user_name
-              #{current_user.user_name}
+              #{@user.user_name}
               %span のキッチン
+#user_page_icon_modal_content
+  .inner
+    %h2.page_title 写真を変更する
+    %p.icon_message 掲載したい写真を選んで、決定ボタンを押してください。
+    #upload-form
+      = form_for @user do |f|
+        = f.file_field :icon_image, id: "user_uploaded_photo", size: "28"
+        %p.submit
+          = f.submit "決定"
+

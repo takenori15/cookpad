@@ -2,10 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   root "recipes#index"
 
-  resources :users, only: [:show, :edit] do
-    collection do
+  resources :users, only: [:show, :edit, :update] do
+    member do
       get :change_user_name
-      get :update_user_name
+    end
+    collection do
+      patch :update_user_name
     end
   end
 

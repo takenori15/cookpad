@@ -10,19 +10,32 @@
                 %p.separate_right このページはあなたのみ閲覧できます
               #account_info
                 #user_icon_wrapper
-                  %a.colorbox_link
-                    =image_tag("coffee.jpeg", width: 48, height: 48)
-                  %p
+                  %a.colorbox_link.icon_modal_open
+                    -if @user.icon_image.present?
+                      =image_tag("#{@user.icon_image.thumb.url}", width: 48, height: 48)
+                    -else
+                      =image_tag("default_icon.png", width: 48, height: 48)
+                  %p.icon_modal_open
                     %a.colorbox_link 変更する
                 %h2#nickname
-                  takenori
-                  %a#link_to_edit_user_name
-                    (変更する)
+                  #{@user.user_name}
+                  =link_to '(変更する)', change_user_name_user_path, id: "link_to_edit_user_name"
                 %p#kitchen_setting
                   %span.your_kitchen
                     あなたのキッチン :
                   %a
-                    takenoriのキッチン
+                    #{@user.user_name}のキッチン
                 %p#register_and_update_date
-                  登録日:14/10/1
-                  更新日:17/09/27
+                  登録日:
+                  = l Date.parse(@user.created_at.to_s, format: :short)
+                  更新日:
+                  = l Date.parse(@user.updated_at.to_s, format: :short)
+#user_page_icon_modal_content
+  .inner
+    %h2.page_title 写真を変更する
+    %p.icon_message 掲載したい写真を選んで、決定ボタンを押してください。
+    #upload-form
+      = form_for @user do |f|
+        = f.file_field :icon_image, id: "user_uploaded_photo", size: "28"
+        %p.submit
+          = f.submit "決定"

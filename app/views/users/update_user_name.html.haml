@@ -8,4 +8,4 @@
             .block10_0
               .ok_message ニックネームを変更しました
             .block5.center
-              %a 登録情報に戻る
+              =link_to "登録情報に戻る", edit_user_path(current_user.id)
