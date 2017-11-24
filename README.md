@@ -16,12 +16,12 @@
 |column|type|option|
 |--------|--------|--------|
 |title|string|null: false, add_index :recipes, :title|
-|main_image|string|--------|
-|catchphrase|string|--------|
+|main_image|text|--------|
+|catchphrase|text|--------|
 |tips|text|--------|
 |publicpage|integer|null: false|
 |background|text|---------|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 
 ### association
 

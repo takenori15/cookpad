@@ -9,11 +9,15 @@
                 %h1.page_title_with_line レシピを書く
                 .separate_right.title_message
                   あなたの家の定番の味、工夫やアイデアをレシピとして記録しよう
-              %form#recipe_create_form
+              =form_for @recipe, html: {id: "recipe_create_form"} do |f|
                 %h3.content_title
                   レシピタイトル
                   %span.notice
                     ※後から変更できます
-                %input#recipe_title_field{type: "text", name: "title", placeholder: "例 : 茄子とオクラの酢味噌和え"}
+                =f.text_field :title, placeholder: "例 : 茄子とオクラの酢味噌和え", id: "recipe_title_field"
+                =f.hidden_field :publicpage, value: "1"
                 .submit
-                  %input#create_recipe_submit.button{type: "submit", name: "commit", value: "材料・作り方の入力に進む"}
+                  =f.submit "材料・作り方の入力に進む", class: "button", id: "create_recipe_submit"
+
+
+

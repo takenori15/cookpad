@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171017070758) do
+ActiveRecord::Schema.define(version: 20171124093941) do
+
+  create_table "recipes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title",                     null: false
+    t.text     "main_image",  limit: 65535
+    t.text     "catchphrase", limit: 65535
+    t.text     "tips",        limit: 65535
+    t.integer  "publicpage",                null: false
+    t.text     "background",  limit: 65535
+    t.integer  "user_id",                   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["title"], name: "index_recipes_on_title", using: :btree
+    t.index ["user_id"], name: "index_recipes_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                                default: "", null: false
@@ -32,4 +46,5 @@ ActiveRecord::Schema.define(version: 20171017070758) do
     t.index ["user_name"], name: "index_users_on_user_name", unique: true, using: :btree
   end
 
+  add_foreign_key "recipes", "users"
 end
