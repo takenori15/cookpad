@@ -15,6 +15,23 @@ class RecipesController < ApplicationController
     redirect_to root_path
   end
 
+  def show
+    @recipe = Recipe.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(recipe_params)
+    respond_to do |format|
+      format.html
+      format.json {render json: @recipe}
+    end
+  end
+
   private
   def recipe_params
     params.require(:recipe).permit(:title, :publicpage).merge(user_id: current_user.id)

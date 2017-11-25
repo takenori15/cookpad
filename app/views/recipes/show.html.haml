@@ -2,11 +2,11 @@
   #container
     #contents
       .main650.no_default_main#main
-        .recipe_show_wrapper
+        =form_for @recipe, html: {class: "recipe_show_wrapper"} do |f|
           .block20.box.hrecipe#recipe
             .links_for_recipe_author
               .link_to_author_kitchen
-                %a takenoriのレシピ
+                %a #{@recipe.user.user_name}のレシピ
               .setting_and_delete_link
                 %a 印刷
                 |
@@ -15,7 +15,9 @@
               #recipe-title.clearfix
                 .recipe-title.fn.clearfix
                   #recipe_title_id_in_place_editer.title
-                    aaaa
+                    #{@recipe.title}
+                  =f.text_field :title, id: "hidden_title_field"
+                  %button.edit_ok_button 保存
               #main-photo.clearfix
                 #recipe_photo_wrapper.clickable_image_uploader_wrapper
                   %form#recipe_image_form.uploader_form
@@ -26,9 +28,9 @@
                     %span.inplaceeditor-empty
                       クリックしてこのレシピのキャッチコピーを入力
                   #recipe_author_info_wrapper.right
-                    =image_tag("coffee.jpg", width: 22, height: 22, class: "author_icon")
+                    =image_tag("#{@recipe.user.icon_image}", width: 22, height: 22, class: "author_icon")
                     %a#recipe_author_name.author
-                      takenori
+                      #{@recipe.user.user_name}
                 #ingredients_wrapper
                   .link-to-ingredient-list
                     #ingredients

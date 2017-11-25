@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :recipes, only: [:index, :show, :new, :create] do
+  resources :recipes, only: [:index, :show, :new, :create, :update] do
     collection do
       get :search
       get :draft
