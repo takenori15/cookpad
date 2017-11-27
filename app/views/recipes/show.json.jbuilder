@@ -1,1 +1,0 @@
-json.title  @recipe.title

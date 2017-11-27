@@ -15,13 +15,14 @@
               #recipe-title.clearfix
                 .recipe-title.fn.clearfix
                   #recipe_title_id_in_place_editer.title
-                    #{@recipe.title}
-                  =f.text_field :title, id: "hidden_title_field"
+                    %span #{@recipe.title}
+                  =f.text_field :title, id: "hidden_title_field", maxlength: "20"
                   %button.edit_ok_button 保存
               #main-photo.clearfix
                 #recipe_photo_wrapper.clickable_image_uploader_wrapper
-                  %form#recipe_image_form.uploader_form
-                    =image_tag("place_main_image.png", width: 280, height: 383, class: "uploader")
+                  =f.label :main_image do
+                    =image_tag("#{@recipe.main_image}", width: 280, height: 383, class: "main_uploader")
+                    =f.file_field :main_image, style: "display: none"
               .desc-and-ingredients
                 #description.summary
                   #recipe_description_userid_in_place_editer.in_place_editor_field

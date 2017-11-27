@@ -399,7 +399,6 @@ input[type= 'text']{
           font-size: 23px;
           font-weight: bold;
           background-color: transparent;
-          width: 100px;
         }
       }
       #main-photo{
@@ -410,6 +409,9 @@ input[type= 'text']{
           position: relative;
           cursor: pointer;
           overflow: hidden;
+          .main_uploader{
+            opacity: 0.5
+          }
           .uploader{
             opacity: 0.5;
           }
