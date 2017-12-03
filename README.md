@@ -42,13 +42,13 @@
 
 - belongs_to :recipe
 
-## processesテーブル
+## advicesテーブル
 
 |column|type|option|
 |--------|--------|--------|
 |making_image|string|-------|
 |body|text|null: false|
-|recipe_id|integer|null: false, foreign_key: true|
+|recipe_id|references|null: false, foreign_key: true|
 
 ### association
 
