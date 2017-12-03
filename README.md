@@ -21,6 +21,7 @@
 |tips|text|--------|
 |publicpage|integer|null: false|
 |background|text|---------|
+|person|string|---------|
 |user_id|references|null: false, foreign_key: true|
 
 ### association
@@ -35,7 +36,7 @@
 |--------|--------|--------|
 |ingredient_name|string|null: false|
 |weight|string|null: false|
-|recipe_id|integer|null: false, foreign_key: true|
+|recipe_id|references|null: false, foreign_key: true|
 
 ### association
 

@@ -17,17 +17,27 @@
                   #recipe_title_id_in_place_editer.title
                     %span #{@recipe.title}
                   =f.text_field :title, id: "hidden_title_field", maxlength: "20"
-                  %button.edit_ok_button 保存
+                  %button.edit_ok_button.title_ok 保存
               #main-photo.clearfix
                 #recipe_photo_wrapper.clickable_image_uploader_wrapper
                   =f.label :main_image do
-                    =image_tag("#{@recipe.main_image}", width: 280, height: 383, class: "main_uploader")
+                    -if @recipe.main_image.present?
+                      =image_tag("#{@recipe.main_image}", width: 280, height: 383, class: "main_uploader")
+                    -else
+                      =image_tag("place_main_image.png", width: 280, height: 383, class: "default_uploader")
                     =f.file_field :main_image, style: "display: none"
               .desc-and-ingredients
                 #description.summary
-                  #recipe_description_userid_in_place_editer.in_place_editor_field
-                    %span.inplaceeditor-empty
-                      クリックしてこのレシピのキャッチコピーを入力
+                  #recipe_description_userid_in_place_editer
+                    .in_place_editor_field
+                      -if @recipe.catchphrase.present?
+                        %span #{@recipe.catchphrase}
+                      %span.inplaceeditor-empty
+                        -if @recipe.catchphrase.blank?
+                          クリックしてこのレシピのキャッチコピーを入力
+                  =f.text_area :catchphrase, style: "display: none", id: "hidden_catchphrase_field", maxlength: "60"
+                  %br
+                  %button.edit_ok_button.catch_ok 保存
                   #recipe_author_info_wrapper.right
                     =image_tag("#{@recipe.user.icon_image}", width: 22, height: 22, class: "author_icon")
                     %a#recipe_author_name.author
@@ -35,7 +45,20 @@
                 #ingredients_wrapper
                   .link-to-ingredient-list
                     #ingredients
-                      =image_tag("recipe_sample.png", width: 310, height: 217)
+                      / =image_tag("recipe_sample.png", width: 310, height: 217)
+                    .servings
+                      %h3.servings_title
+                        .content
+                          %span 材料
+                          %span.servings_for (#{@recipe.person})
+                        .clear
+                      #ingredients_list
+                        -@recipe.ingredients.each do |ingredient|
+                          .ingredient_row
+                            .ingredient_name
+                              %span.name #{ingredient.ingredient_name}
+                            .ingredient_quantity
+                              %span #{ingredient.weight}
             #sk_product_recipe_promotion
             #steps
               .step
@@ -86,10 +109,10 @@
         #cboxLoadedContent{style: "width: 450px; overflow: auto; height: 420px; background: rgb(255, 255, 255);"}
           #ingredients_edit
             #ingredient_list
-              %form#save-ingredient
+              =form_for @recipe, url: {action: :ingredients_update}, html: {id: "save-ingredient"} do |f|
                 .serving_container#servings
                   (
-                  %input{type: "text", name: "serving_for", class: "servings", id: "serving_for", placeholder: "何人分"}
+                  =f.text_field :person, class:"servings", id: "serving_for", placeholder: "何人分"
                   )
                   %span 例)2人分
                 .clear
@@ -97,22 +120,25 @@
                   %span.name 材料・調味料
                   %span.quantity 分量
                 #edit-ingredients-list.sara_sortable_parent
-                  #ingredient-row.row.sara_sortable.sara_sortable_block
-                    .sortable_line
-                      .sortable_line_inner
-                        =image_tag("drag_icon", class: "drag")
-                        %span.name
-                          %input.text-field.sortable_line_name{type: "text", placeholder: "例) 豚肉"}
-                        %span.quantity
-                          %input.text-field.sortable_line_quantity{type: "text", placeholder: "例) 350g"}
-                        %a
-                          =image_tag("delete_icon.png", class: "delete")
-                .footer_list
-                  .add_ingredient_field
-                    %input.append_line{type: "button", value: "行を追加する"}
-                  .clear
-                .submit.save
-                  #ingredients_submit_button
-                    %input.submit_button{type: "submit", name: "commit", value: "保存して閉じる"}
-        =image_tag("close_button.png", id: "cboxClose")
+                  =fields_for @new_ingredient do |i|
+                    =i.hidden_field :id, value: "#{@new_ingredient.id + 1}", class: "hidden_ingredient_id"
+                  -@ingredients.each do |ingredient|
+                    =fields_for "ingredients[]", ingredient do |other|
+                      #ingredient-row.row.sara_sortable.sara_sortable_block
+                        .sortable_line
+                          .sortable_line_inner
+                            =image_tag("drag_icon", class: "drag")
+                            %span.name
+                              =other.text_field :ingredient_name, value: ingredient.ingredient_name, class: "text-field sortable_line_name", placeholder: "例: 豚肉"
+                            %span.quantity
+                              =other.text_field :weight, value: ingredient.weight, class: "text-field sortable_line_quantity", placeholder: "例: 350g"
+                            =link_to image_tag('delete_icon.png', class: "delete"), recipe_ingredient_path(recipe_id: @recipe, id: ingredient.id), method: :delete
+                            %span
+                  .footer_list
+                    .add_ingredient_field
+                      %input.append_line{type: "button", value: "行を追加する"}
+                    .clear
+                  .submit.save
+                    #ingredients_submit_button
+                      =f.submit class: "ingredients_submit_button", value: "保存して閉じる"
 

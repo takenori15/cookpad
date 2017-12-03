@@ -17,8 +17,10 @@ Rails.application.routes.draw do
       get :draft
     end
     member do
+      patch :ingredients_update
       get :list
     end
+    resources :ingredients, only: [:destroy]
   end
 
 end

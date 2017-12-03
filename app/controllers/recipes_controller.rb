@@ -17,6 +17,9 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @recipe_person = Recipe.select("person").find(params[:id])
+    @ingredients = Ingredient.where(recipe_id: params[:id])
+    @new_ingredient = Ingredient.last
   end
 
   def update
@@ -28,8 +31,35 @@ class RecipesController < ApplicationController
     end
   end
 
+  def ingredients_update
+    @recipe = Recipe.find(params[:id])
+    @new_ingredient = Ingredient.new
+    @ingredients = ingredient_params.map do |id, ingredient_param|
+      if Ingredient.exists?(id: id)
+        ingredient = Ingredient.find(id)
+        merged_ingredient = ingredient_param.merge(recipe_id: params[:id])
+      else
+        merged_ingredient = ingredient_param.merge(recipe_id: params[:id])
+        Ingredient.create(merged_ingredient)
+      end
+    end
+    @recipe.update(person_params)
+    redirect_to recipe_path(params[:id])
+  end
+
+  def ingredient_destroy
+  end
+
   private
   def recipe_params
-    params.require(:recipe).permit(:title, :main_image, :publicpage).merge(user_id: current_user.id)
+    params.require(:recipe).permit(:title, :main_image, :catchphrase, :publicpage).merge(user_id: current_user.id)
+  end
+
+  def person_params
+    params.require(:recipe).permit(:person).merge(user_id: current_user.id)
+  end
+
+  def ingredient_params
+    params.permit(ingredients: [:id, :ingredient_name, :weight])[:ingredients]
   end
 end
