@@ -45,20 +45,23 @@
                 #ingredients_wrapper
                   .link-to-ingredient-list
                     #ingredients
-                      / =image_tag("recipe_sample.png", width: 310, height: 217)
-                    .servings
-                      %h3.servings_title
-                        .content
-                          %span 材料
-                          %span.servings_for (#{@recipe.person})
-                        .clear
-                      #ingredients_list
-                        -@recipe.ingredients.each do |ingredient|
-                          .ingredient_row
-                            .ingredient_name
-                              %span.name #{ingredient.ingredient_name}
-                            .ingredient_quantity
-                              %span #{ingredient.weight}
+                    -if @recipe.ingredients.present?
+                      .servings
+                        %h3.servings_title
+                          .content
+                            %span 材料
+                            %span.servings_for (#{@recipe.person})
+                          .clear
+                        #ingredients_list
+                          -@recipe.ingredients.each do |ingredient|
+                            .ingredient_row
+                              .ingredient_name
+                                %span.name #{ingredient.ingredient_name}
+                              .ingredient_quantity
+                                %span #{ingredient.weight}
+                    -else
+                      =image_tag("recipe_sample.png", width: 310, height: 217)
+
             #sk_product_recipe_promotion
             #steps
               .step

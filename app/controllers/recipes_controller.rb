@@ -38,6 +38,7 @@ class RecipesController < ApplicationController
       if Ingredient.exists?(id: id)
         ingredient = Ingredient.find(id)
         merged_ingredient = ingredient_param.merge(recipe_id: params[:id])
+        ingredient.update(merged_ingredient)
       else
         merged_ingredient = ingredient_param.merge(recipe_id: params[:id])
         Ingredient.create(merged_ingredient)
@@ -47,7 +48,7 @@ class RecipesController < ApplicationController
     redirect_to recipe_path(params[:id])
   end
 
-  def ingredient_destroy
+  def add_advice
   end
 
   private
