@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203081117) do
+ActiveRecord::Schema.define(version: 20171205050219) do
 
   create_table "advices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "making_image"
@@ -31,16 +31,19 @@ ActiveRecord::Schema.define(version: 20171203081117) do
   end
 
   create_table "recipes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "title",                     null: false
-    t.text     "main_image",  limit: 65535
-    t.text     "catchphrase", limit: 65535
-    t.text     "tips",        limit: 65535
-    t.integer  "publicpage",                null: false
-    t.text     "background",  limit: 65535
-    t.integer  "user_id",                   null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "title",                      null: false
+    t.text     "main_image",   limit: 65535
+    t.text     "catchphrase",  limit: 65535
+    t.text     "tips",         limit: 65535
+    t.integer  "publicpage",                 null: false
+    t.text     "background",   limit: 65535
+    t.integer  "user_id",                    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "person"
+    t.text     "first_body",   limit: 65535
+    t.text     "second_body",  limit: 65535
+    t.text     "third_column", limit: 65535
     t.index ["title"], name: "index_recipes_on_title", using: :btree
     t.index ["user_id"], name: "index_recipes_on_user_id", using: :btree
   end

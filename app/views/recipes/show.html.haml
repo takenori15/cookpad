@@ -69,36 +69,77 @@
                   %dt
                     .f_left
                       %span.step-position 1
-                      %a.step_move_higher ←
-                      %a.step_move_lower →
                     .f_right
-                      %a.step_remove 削除
-                      %a.step_add 追加
                     .clear
                   %dd
-                    .clickable_image_uploader_wrapper.step_photo_wrapper
-                      %form#step_photo_form.uploader_form
-                        %img#step_photo.uploader{src: "/assets/place_image.png", width: 136, height: 27}
                     #step_text.font14
                       #step_memo_in_place_editor.in_place_editor_field{style: "background-color: transparent; background-image: none; opacity: 1;"}
-                        %span.inplaceeditor-empty
-                          クリックして作り方を入力
+                        -if @recipe.first_body.blank?
+                          %span.advice_message_1 クリックして作り方を入力
+                        -else
+                          .advice_1 #{@recipe.first_body}
+                        =f.text_area :first_body, class: "inplaceeditor-empty advice_body_here", style: "display: none", maxlength: "60"
+                        %button.edit_ok_button.advice_ok 保存
+              .step
+                %dl
+                  %dt
+                    .f_left
+                      %span.step-position 2
+                    .f_right
+                    .clear
+                  %dd
+                    #step_text.font14
+                      #step_memo_in_place_editor.in_place_editor_field{style: "background-color: transparent; background-image: none; opacity: 1;"}
+                        -if @recipe.second_body.blank?
+                          %span.advice_message_2 クリックして作り方を入力
+                        -else
+                          .advice_2 #{@recipe.second_body}
+                        =f.text_area :second_body, class: "inplaceeditor-empty advice_body_here_2", style: "display: none", maxlength: "60"
+                        %button.edit_ok_button.advice_ok_2 保存
+              .step
+                %dl
+                  %dt
+                    .f_left
+                      %span.step-position 3
+                    .f_right
+                    .clear
+                  %dd
+                    #step_text.font14
+                      #step_memo_in_place_editor.in_place_editor_field{style: "background-color: transparent; background-image: none; opacity: 1;"}
+                        -if @recipe.third_column.blank?
+                          %span.advice_message_3 クリックして作り方を入力
+                        -else
+                          .advice_3 #{@recipe.third_column}
+                        =f.text_area :third_column, class: "inplaceeditor-empty advice_body_here_3", style: "display: none", maxlength: "60"
+                        %button.edit_ok_button.advice_ok_3 保存
             .clear
             #memo_and_history.clearfix
               #memo_wrapper.block
                 %h3.borderles コツ・ポイント
                 #advice.text_content
                   #recipe_advice_in_place_editor.in_place_editor_field{style: "background-color: transparent;"}
-                    %span.inplaceeditor-empty
-                      クリックしてコツやポイントを入力
+                    %span.inplaceeditor-empty.default_tips
+                      -if @recipe.tips.present?
+                        #{@recipe.tips}
+                      -else
+                        クリックしてコツやポイントを入力
+                    =f.text_area :tips, id: "hidden_tips_field", style: "display: none", maxlength: "120"
+                    %button.edit_ok_button.tips_ok 保存
+
               #history_wrapper.block
                 %h3.borderles このレシピの生い立ち
                 #history.text_content
                   #recipe_history_in_place_editor.in_place_editor_field{style: "background-color: transparent;"}
-                    %span.inplaceeditor-empty
-                      例）母から教わったレシピを、家族が好む甘めの味付けにアレンジしました
-                      %br
+                    %span.inplaceeditor-empty.default_background
+                      -if @recipe.background.present?
+                        #{@recipe.background}
+                      -else
+                        例）母から教わったレシピを、家族が好む甘めの味付けにアレンジしました
+                        %br
                         例）○○番組で紹介されたレシピを、家にある材料で簡単に作れるよう工夫しました
+                    =f.text_area :background, id: "hidden_background_field", style: "display: none", maxlength: "120"
+                    %button.edit_ok_button.background_ok 保存
+
 
       #side.mykitchen_side_column
         .draft_box

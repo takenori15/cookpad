@@ -25,6 +25,7 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     @recipe.update(recipe_params)
+
     respond_to do |format|
       format.html
       format.json
@@ -53,7 +54,7 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:title, :main_image, :catchphrase, :publicpage).merge(user_id: current_user.id)
+    params.require(:recipe).permit(:title, :main_image, :catchphrase, :publicpage, :first_body, :second_body, :third_column, :tips, :background).merge(user_id: current_user.id)
   end
 
   def person_params

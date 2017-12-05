@@ -45,12 +45,49 @@ function add_ingredientHTML(id){
   });
   $(document).on("click", ".delete", function(){
     $(this).parents("#ingredient-row").hide()
-    // $(this).next().next().prop("checked", true)
   });
-
+  $(".advice_message_1").click(function(){
+    $(this).hide();
+    $(".advice_body_here").show();
+    $(".advice_ok").show()
+  })
+  $(".advice_1").click(function(){
+    $(this).hide();
+    $(".advice_body_here").show();
+    $(".advice_ok").show();
+  });
+  $(".advice_message_2").click(function(){
+    $(this).hide();
+    $(".advice_body_here_2").show();
+    $(".advice_ok_2").show()
+  })
+  $(".advice_2").click(function(){
+    $(this).hide();
+    $(".advice_body_here_2").show();
+    $(".advice_ok_2").show();
+  });
+  $(".advice_message_3").click(function(){
+    $(this).hide();
+    $(".advice_body_here_3").show();
+    $(".advice_ok_3").show()
+  })
+  $(".advice_3").click(function(){
+    $(this).hide();
+    $(".advice_body_here_3").show();
+    $(".advice_ok_3").show();
+  });
+  $(".default_tips").click(function(){
+    $(this).hide();
+    $("#hidden_tips_field").show();
+    $(".tips_ok").show();
+  });
+  $(".default_background").click(function(){
+    $(this).hide();
+    $("#hidden_background_field").show();
+    $(".background_ok").show();
+  });
   $(".recipe_show_wrapper").on("submit, change", function(e){
     e.preventDefault();
-    console.log(e)
     var formData = new FormData(this)
     var url = $(this).attr('action')
     $.ajax({
@@ -65,6 +102,11 @@ function add_ingredientHTML(id){
       $("#recipe_title_id_in_place_editer").text(data.title);
       $(".main_uploader").attr("src", data.main_image.url)
       $("#recipe_description_userid_in_place_editer").text(data.catchphrase)
+      $(".advice_1").text(data.first_body)
+      $(".advice_2").text(data.second_body)
+      $(".advice_3").text(data.third_column)
+      $(".default_tips").text(data.tips)
+      $(".default_background").text(data.background)
     })
     $("#recipe_title_id_in_place_editer").show();
     $(".title_ok").hide();
@@ -72,7 +114,23 @@ function add_ingredientHTML(id){
     $("#recipe_description_userid_in_place_editer").show();
     $("#hidden_catchphrase_field").hide()
     $(".catch_ok").hide()
+    $(".advice_1").show();
+    $(".advice_body_here").hide();
+    $(".advice_ok").hide();
+    $(".advice_2").show();
+    $(".advice_body_here_2").hide();
+    $(".advice_ok_2").hide();
+    $(".advice_3").show();
+    $(".advice_body_here_3").hide();
+    $(".advice_ok_3").hide();
+    $("#hidden_tips_field").hide();
+    $(".tips_ok").hide();
+    $(".default_tips").show();
+    $("#hidden_background_field").hide();
+    $(".background_ok").hide();
+    $(".default_background").show();
   })
+
 })
 $(function(){
   $(document).on('click', "#recipe_edit_overlay", function(){
