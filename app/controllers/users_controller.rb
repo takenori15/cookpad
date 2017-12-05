@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: :show
   def show
     @user = User.find(params[:id])
+    @recipes = @user.recipes.all.order("id DESC").page(params[:page]).per(5)
   end
 
   def update

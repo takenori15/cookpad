@@ -1,0 +1,100 @@
+@mixin clear{
+  display: block;
+  content: "";
+  clear: both;
+}
+.cookpad_mypage_tab{
+  height: 44px;
+  background-color: #f3f0e2;
+  padding-right: 5px;
+  border-radius: 5px 5px 0 0;
+  border: 1px solid #e3dcca;
+  &:after{
+    @include clear;
+  }
+}
+.mypage_recipe_list{
+  width: 85px;
+  height: 44px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+  text-align: center;
+  line-height: 16px;
+  padding-top: 5px;
+  font-size: 12px;
+}
+.mypage_container{
+  padding-top: 10px;
+  background: #ffffff;
+  border: 1px solid #e3dcca;
+  border-top: none;
+  margin-bottom: 6px;
+  padding: 4px;
+  border-radius: 0 0 5px 5px;
+  &:after{
+    @include clear;
+  }
+}
+#mypage_one-col{
+  overflow: hidden;
+  margin: 10px 15px;
+}
+#kitchen_side{
+  float: left;
+  width: 157px;
+  border-right: 1px solid #D6D7B9;
+  position: relative;
+  left: 1px;
+}
+.recipe_category{
+  border-bottom: 1px solid #D6D7B9;
+  color: #C1C1A6;
+  font-size: 108%;
+  font-weight: normal;
+  margin-bottom: 6px;
+  padding-bottom: 1px
+}
+#kitchen_main_list{
+  border-left: 1px solid #D6D7B9;
+  float: right;
+  padding-left: 13px;
+  width: 438px;
+  margin-right: 0;
+}
+.created_recipe{
+  position: relative;
+  padding-right: 25px;
+  margin-bottom: 15px;
+  overflow: visible;
+  &:after{
+    @include clear;
+  }
+}
+.myrecipe_image{
+  position: relative;
+    float: left;
+    width: 100px;
+    margin-right: 10px;
+}
+.myrecipe_title_inner{
+  padding: 0 0 3px 0;
+  margin: 10px 0;
+  font-weight: bold;
+  position: relative;
+  color: #4d2200;
+  font-size: 129%;
+}
+.mypage_to_recipe_link{
+  color: #889b00;
+  font-weight: bold;
+  font-size: 108%;
+  line-height: 100%;
+  margin-bottom: 4px;
+}
+.image_for_mypage_lists{
+  width: 100px;
+  height: 138px;
+}
+
+
+
