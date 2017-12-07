@@ -163,6 +163,7 @@
         #cboxLoadedContent{style: "width: 450px; overflow: auto; height: 420px; background: rgb(255, 255, 255);"}
           #ingredients_edit
             #ingredient_list
+<<<<<<< HEAD
               / -unless @new_ingredient.nil?
               /   =form_for @recipe, url: {action: :ingredients_update}, html: {id: "save-ingredient"} do |f|
               /     .serving_container#servings
@@ -222,4 +223,3 @@
               /     .submit.save
               /       #ingredients_submit_button
               /         =f.submit class: "ingredients_submit_button", value: "保存して閉じる"
-
