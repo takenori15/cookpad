@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       get :draft
     end
     member do
+      patch :create_first_ingredient
       patch :ingredients_update
       get :list
     end
