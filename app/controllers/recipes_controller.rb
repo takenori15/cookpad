@@ -26,8 +26,8 @@ class RecipesController < ApplicationController
     @new_ingredient = Ingredient.where(recipe_id: params[:id]).last
     @first_ingredient = Ingredient.new
   end
-def create_first_ingredient
-    binding.pry
+
+  def create_first_ingredient
     @recipe = Recipe.find(params[:id])
     @ingredient = Ingredient.create(first_ingredient_params)
     @recipe.update(person_params)
@@ -52,7 +52,6 @@ def create_first_ingredient
   end
 
   def ingredients_update
-    binding.pry
     @recipe = Recipe.find(params[:id])
     @new_ingredient = Ingredient.new
     @ingredients = ingredient_params.map do |id, ingredient_param|
