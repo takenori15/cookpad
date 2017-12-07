@@ -5,6 +5,10 @@ class RecipesController < ApplicationController
   def search
   end
 
+  def recent_list
+    @recipes = Recipe.all.where(publicpage: "2").order("id DESC").page(params[:page]).per(5)
+  end
+
   def new
     @recipe = Recipe.new
   end
@@ -32,6 +36,12 @@ class RecipesController < ApplicationController
     end
   end
 
+  def update_to_public
+    @recipe = Recipe.find(params[:recipe][:id])
+    @recipe.update(public_params)
+    redirect_to recent_list_recipes_path
+  end
+
   def ingredients_update
     @recipe = Recipe.find(params[:id])
     @new_ingredient = Ingredient.new
@@ -54,7 +64,11 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:title, :main_image, :catchphrase, :publicpage, :first_body, :second_body, :third_column, :tips, :background).merge(user_id: current_user.id)
+    params.require(:recipe).permit(:id, :title, :main_image, :catchphrase, :first_body, :second_body, :third_column, :tips, :background, :publicpage).merge(user_id: current_user.id)
+  end
+
+  def public_params
+    params.require(:recipe).permit(:id, :publicpage)
   end
 
   def person_params

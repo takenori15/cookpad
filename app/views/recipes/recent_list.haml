@@ -1,0 +1,27 @@
+#wrapper
+  #container
+    #contents
+      .main650.no_default_main#main
+        #recent_list_contents
+          #recent_list_main
+            .recent_page_header
+              %h2.recent_title_border 新着レシピ
+              .recent_list_block
+                -@recipes.each do |recipe|
+                  -if recipe.publicpage == 2
+                    .recipe_list_child
+                      .child_image
+                        -if recipe.main_image.present?
+                          =image_tag("#{recipe.main_image}", width: 100)
+                        -else
+                          =image_tag("default_list_img.png", width: 100)
+                      .child_text
+                        %span.child_title
+                          -if recipe.title.present?
+                            =link_to "#{recipe.title}", recipe_path(id: recipe.id), class: "child_title_green"
+                          -else
+                            =link_to "タイトル未入力", recipe_path(id: recipe.id), class: "child_title_green"
+                        %span.recipe_author_name
+                          %span.by by
+                          #{recipe.user.user_name}
+                =paginate(@recipes)

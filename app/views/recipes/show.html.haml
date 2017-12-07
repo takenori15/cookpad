@@ -2,7 +2,7 @@
   #container
     #contents
       .main650.no_default_main#main
-        =form_for @recipe, html: {class: "recipe_show_wrapper"} do |f|
+        =form_for @recipe, html: {id: "recipe_show_wrapper"} do |f|
           .block20.box.hrecipe#recipe
             .links_for_recipe_author
               .link_to_author_kitchen
@@ -20,12 +20,15 @@
                   %button.edit_ok_button.title_ok 保存
               #main-photo.clearfix
                 #recipe_photo_wrapper.clickable_image_uploader_wrapper
-                  =f.label :main_image do
-                    -if @recipe.main_image.present?
-                      =image_tag("#{@recipe.main_image}", width: 280, height: 383, class: "main_uploader")
-                    -else
-                      =image_tag("place_main_image.png", width: 280, height: 383, class: "default_uploader")
-                    =f.file_field :main_image, style: "display: none"
+                  -if user_signed_in? && current_user.id == @recipe.user.id
+                    =f.label :main_image do
+                      -if @recipe.main_image.present?
+                        =image_tag("#{@recipe.main_image}", width: 280, height: 383, class: "main_uploader")
+                      -else
+                        =image_tag("place_main_image.png", width: 280, height: 383, class: "main_uploader")
+                      =f.file_field :main_image, style: "display: none"
+                  -else
+                    =image_tag("#{@recipe.main_image}", width: 280, height: 383, class: "main_uploader")
               .desc-and-ingredients
                 #description.summary
                   #recipe_description_userid_in_place_editer
@@ -73,13 +76,15 @@
                     .clear
                   %dd
                     #step_text.font14
-                      #step_memo_in_place_editor.in_place_editor_field{style: "background-color: transparent; background-image: none; opacity: 1;"}
-                        -if @recipe.first_body.blank?
-                          %span.advice_message_1 クリックして作り方を入力
-                        -else
-                          .advice_1 #{@recipe.first_body}
-                        =f.text_area :first_body, class: "inplaceeditor-empty advice_body_here", style: "display: none", maxlength: "60"
-                        %button.edit_ok_button.advice_ok 保存
+                      #step_memo_in_place_editor.in_place_editor_field.advice_1{style: "background-color: transparent; background-image: none; opacity: 1;"}
+                        -if @recipe.first_body.present?
+                          %span #{@recipe.first_body}
+                        %span
+                          -if @recipe.first_body.blank?
+                            %span.advice_message_1 クリックして作り方を入力
+                    =f.text_area :first_body, class: "inplaceeditor-empty advice_body_here", style: "display: none", maxlength: "60"
+                    %button.edit_ok_button.advice_ok 保存
+
               .step
                 %dl
                   %dt
@@ -89,13 +94,14 @@
                     .clear
                   %dd
                     #step_text.font14
-                      #step_memo_in_place_editor.in_place_editor_field{style: "background-color: transparent; background-image: none; opacity: 1;"}
-                        -if @recipe.second_body.blank?
-                          %span.advice_message_2 クリックして作り方を入力
-                        -else
-                          .advice_2 #{@recipe.second_body}
-                        =f.text_area :second_body, class: "inplaceeditor-empty advice_body_here_2", style: "display: none", maxlength: "60"
-                        %button.edit_ok_button.advice_ok_2 保存
+                      #step_memo_in_place_editor.in_place_editor_field.advice_2{style: "background-color: transparent; background-image: none; opacity: 1;"}
+                        -if @recipe.second_body.present?
+                          %span #{@recipe.second_body}
+                        %span
+                          -if @recipe.second_body.blank?
+                            %span.advice_message_2 クリックして作り方を入力
+                    =f.text_area :second_body, class: "inplaceeditor-empty advice_body_here_2", style: "display: none", maxlength: "60"
+                    %button.edit_ok_button.advice_ok_2 保存
               .step
                 %dl
                   %dt
@@ -105,13 +111,14 @@
                     .clear
                   %dd
                     #step_text.font14
-                      #step_memo_in_place_editor.in_place_editor_field{style: "background-color: transparent; background-image: none; opacity: 1;"}
-                        -if @recipe.third_column.blank?
-                          %span.advice_message_3 クリックして作り方を入力
-                        -else
-                          .advice_3 #{@recipe.third_column}
-                        =f.text_area :third_column, class: "inplaceeditor-empty advice_body_here_3", style: "display: none", maxlength: "60"
-                        %button.edit_ok_button.advice_ok_3 保存
+                      #step_memo_in_place_editor.in_place_editor_field.advice_3{style: "background-color: transparent; background-image: none; opacity: 1;"}
+                        -if @recipe.third_column.present?
+                          %span #{@recipe.third_column}
+                        %span
+                          -if @recipe.third_column.blank?
+                            %span.advice_message_3 クリックして作り方を入力
+                    =f.text_area :third_column, class: "inplaceeditor-empty advice_body_here_3", style: "display: none", maxlength: "60"
+                    %button.edit_ok_button.advice_ok_3 保存
             .clear
             #memo_and_history.clearfix
               #memo_wrapper.block
@@ -139,13 +146,16 @@
                         例）○○番組で紹介されたレシピを、家にある材料で簡単に作れるよう工夫しました
                     =f.text_area :background, id: "hidden_background_field", style: "display: none", maxlength: "120"
                     %button.edit_ok_button.background_ok 保存
-
-
       #side.mykitchen_side_column
         .draft_box
+          .hidden_id_for_js{style: "display: none", value: "#{@recipe.user.id}"}
+          -if user_signed_in?
+            .hidden_current_user_id{style: "display: none", value: current_user.id}
           .messages_to_publish
-            %form#confirm_publish_form.edit_recipe
-              %input.button.attention{type: "submit", name: "commit", value: "レシピを公開する"}
+            =form_for @recipe, url: {action: 'update_to_public'}, id: "confirm_publish_form", class: "edit_recipe" do |f|
+              =f.hidden_field :publicpage, value: "2"
+              =f.hidden_field :id, value: "#{@recipe.id}"
+              =f.submit "レシピを公開する", class: "button attention"
 
   #colorbox
     #cboxWrapper

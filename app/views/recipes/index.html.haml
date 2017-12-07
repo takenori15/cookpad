@@ -8,7 +8,7 @@
               %a レシピ関連サービス
             %ul.services.recipe_services
               %li.recipe
-                %a
+                =link_to recent_list_recipes_path do
                   =image_tag("all_recipes.png", width: 24, height: 19, class: "icon_font_with_text")
                   %span.service_name みんなのレシピ
               %li.recipe

@@ -20,8 +20,11 @@ function add_ingredientHTML(id){
                             `
   return new_ingredient_html
 }
-
+var recipe_writer_id = $(".hidden_id_for_js").attr("value")
+var current_user_id = $(".hidden_current_user_id").attr("value")
+if(current_user_id == recipe_writer_id ){
   $("#recipe_title_id_in_place_editer").click(function(){
+    console.log("test0");
     $(this).hide();
     $("#hidden_title_field").show();
     $(".title_ok").show();
@@ -39,7 +42,6 @@ function add_ingredientHTML(id){
   });
   $(document).on('click', ".append_line", function(){
     var new_id = $('.hidden_ingredient_id').val()
-    console.log(new_id)
     var html = add_ingredientHTML(new_id);
     $("#edit-ingredients-list").prepend(html)
   });
@@ -86,10 +88,12 @@ function add_ingredientHTML(id){
     $("#hidden_background_field").show();
     $(".background_ok").show();
   });
-  $(".recipe_show_wrapper").on("submit, change", function(e){
+  $(document).on("click", ".title_ok", function(e){
     e.preventDefault();
-    var formData = new FormData(this)
-    var url = $(this).attr('action')
+    var form = document.getElementById("recipe_show_wrapper")
+    var formData = new FormData(form);
+    console.log(formData)
+    var url = $(this).attr('action');
     $.ajax({
       url: url,
       type: "POST",
@@ -100,42 +104,197 @@ function add_ingredientHTML(id){
     })
     .done(function(data){
       $("#recipe_title_id_in_place_editer").text(data.title);
-      $(".main_uploader").attr("src", data.main_image.url)
-      $("#recipe_description_userid_in_place_editer").text(data.catchphrase)
-      $(".advice_1").text(data.first_body)
-      $(".advice_2").text(data.second_body)
-      $(".advice_3").text(data.third_column)
-      $(".default_tips").text(data.tips)
-      $(".default_background").text(data.background)
+  //     $(".main_uploader").attr("src", data.main_image.url)
+  //     $("#recipe_description_userid_in_place_editer").text(data.catchphrase)
+  //     $(".advice_1").text(data.first_body)
+  //     $(".advice_2").text(data.second_body)
+  //     $(".advice_3").text(data.third_column)
+  //     $(".default_tips").text(data.tips)
+  //     $(".default_background").text(data.background)
+     })
+     $("#recipe_title_id_in_place_editer").show();
+     $(".title_ok").hide();
+     $("#hidden_title_field").hide();
+  //   $("#recipe_description_userid_in_place_editer").show();
+  //   $("#hidden_catchphrase_field").hide()
+  //   $(".catch_ok").hide()
+  //   $(".advice_1").show();
+  //   $(".advice_body_here").hide();
+  //   $(".advice_ok").hide();
+  //   $(".advice_2").show();
+  //   $(".advice_body_here_2").hide();
+  //   $(".advice_ok_2").hide();
+  //   $(".advice_3").show();
+  //   $(".advice_body_here_3").hide();
+  //   $(".advice_ok_3").hide();
+  //   $("#hidden_tips_field").hide();
+  //   $(".tips_ok").hide();
+  //   $(".default_tips").show();
+  //   $("#hidden_background_field").hide();
+  //   $(".background_ok").hide();
+  //   $(".default_background").show();
+  })
+  $(document).on("click", ".catch_ok", function(e){
+    console.log("aaa")
+    e.preventDefault();
+    var form = document.getElementById("recipe_show_wrapper")
+    var formData = new FormData(form);
+    console.log(formData)
+    var url = $(this).attr('action');
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: formData,
+      dataType: 'json',
+      processData: false,
+      contentType: false
     })
-    $("#recipe_title_id_in_place_editer").show();
-    $(".title_ok").hide();
-    $("#hidden_title_field").hide();
+    .done(function(data){
+      $("#recipe_description_userid_in_place_editer").text(data.catchphrase);
+    });
     $("#recipe_description_userid_in_place_editer").show();
     $("#hidden_catchphrase_field").hide()
     $(".catch_ok").hide()
+  });
+
+  $(document).on("change", "#recipe_main_image", function(e){
+    e.preventDefault();
+    var form = document.getElementById("recipe_show_wrapper")
+    var formData = new FormData(form);
+    console.log(formData)
+    var url = $(this).attr('action');
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: formData,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    })
+    .done(function(data){
+      console.log(data.main_image)
+      $(".main_uploader").attr("src", data.main_image.url)
+    });
+  });
+
+  $(document).on("click", ".advice_ok", function(e){
+    e.preventDefault();
+    var form = document.getElementById("recipe_show_wrapper")
+    var formData = new FormData(form);
+    console.log(formData)
+    var url = $(this).attr('action');
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: formData,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    })
+    .done(function(data){
+      $(".advice_1").text(data.first_body);
+    });
     $(".advice_1").show();
     $(".advice_body_here").hide();
     $(".advice_ok").hide();
+  });
+
+
+  $(document).on("click", ".advice_ok_2", function(e){
+    e.preventDefault();
+    var form = document.getElementById("recipe_show_wrapper")
+    var formData = new FormData(form);
+    console.log(formData)
+    var url = $(this).attr('action');
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: formData,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    })
+    .done(function(data){
+      $(".advice_2").text(data.second_body);
+    });
     $(".advice_2").show();
     $(".advice_body_here_2").hide();
     $(".advice_ok_2").hide();
+  });
+
+  $(document).on("click", ".advice_ok_3", function(e){
+    e.preventDefault();
+    var form = document.getElementById("recipe_show_wrapper")
+    var formData = new FormData(form);
+    console.log(formData)
+    var url = $(this).attr('action');
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: formData,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    })
+    .done(function(data){
+      $(".advice_3").text(data.third_column);
+    });
     $(".advice_3").show();
     $(".advice_body_here_3").hide();
     $(".advice_ok_3").hide();
+  });
+
+
+  $(document).on("click", ".tips_ok", function(e){
+    e.preventDefault();
+    var form = document.getElementById("recipe_show_wrapper")
+    var formData = new FormData(form);
+    console.log(formData)
+    var url = $(this).attr('action');
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: formData,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    })
+    .done(function(data){
+      $(".default_tips").text(data.tips)
+    });
     $("#hidden_tips_field").hide();
     $(".tips_ok").hide();
     $(".default_tips").show();
+  });
+
+  $(document).on("click", ".background_ok", function(e){
+    e.preventDefault();
+    var form = document.getElementById("recipe_show_wrapper")
+    var formData = new FormData(form);
+    console.log(formData)
+    var url = $(this).attr('action');
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: formData,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    })
+    .done(function(data){
+      $(".default_background").text(data.background)
+    });
     $("#hidden_background_field").hide();
     $(".background_ok").hide();
     $(".default_background").show();
-  })
-
-})
+  });
+// })
 $(function(){
   $(document).on('click', "#recipe_edit_overlay", function(){
     $("#recipe_edit_overlay, #colorbox").fadeOut("slow", function(){
       $("#recipe_edit_overlay").remove();
     });
   });
+});
+}
 });

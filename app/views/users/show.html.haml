@@ -27,19 +27,20 @@
                 %h3.recipe_category 作成したレシピリスト
               #kitchen_main_list
                 -@recipes.each do |recipe|
-                  .created_recipe
-                    .myrecipe_image
-                      -if recipe.main_image.present?
-                        =image_tag("#{recipe.main_image}", class: "image_for_mypage_lists")
-                      -else
-                        =image_tag("default_list_img.png", width: 100)
-                    .myrecipe_title
-                      %span.myrecipe_title_inner
-                        -if recipe.title.present?
-                          =link_to "#{recipe.title}", recipe_path(id: recipe.id)
+                  -if user_signed_in? && current_user.id == recipe.user.id
+                    .created_recipe
+                      .myrecipe_image
+                        -if recipe.main_image.present?
+                          =image_tag("#{recipe.main_image}", class: "image_for_mypage_lists")
                         -else
-                          =link_to "タイトル未入力", recipe_path(id: recipe.id)
-                =paginate(@recipes)
+                          =image_tag("default_list_img.png", width: 100)
+                      .myrecipe_title
+                        %span.myrecipe_title_inner
+                          -if recipe.title.present?
+                            =link_to "#{recipe.title}", recipe_path(id: recipe.id)
+                          -else
+                            =link_to "タイトル未入力", recipe_path(id: recipe.id)
+                =paginate(@recipes) if current_user.id == @user.id
 #user_page_icon_modal_content
   .inner
     %h2.page_title 写真を変更する
