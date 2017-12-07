@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe_person = Recipe.select("person").find(params[:id])
     @ingredients = Ingredient.where(recipe_id: params[:id])
-    @new_ingredient = Ingredient.where(recipe_id: params[:id]).last
+    #@new_ingredient = Ingredient.where(recipe_id: params[:id]).last
     @first_ingredient = Ingredient.new
   end
 
