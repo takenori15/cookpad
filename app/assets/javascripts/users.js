@@ -23,3 +23,8 @@ $(function(){
     });
   });
 });
+$(function(){
+  $("#user_menu_config").click(function(){
+    $(".config_dropdown_menu").toggle();
+  });
+});

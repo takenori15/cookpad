@@ -11,14 +11,18 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :recipes, only: [:index, :show, :new, :create] do
+  resources :recipes, only: [:index, :show, :new, :create, :update] do
     collection do
+      patch :update_to_public
+      get :recent_list
       get :search
       get :draft
     end
     member do
+      patch :ingredients_update
       get :list
     end
+    resources :ingredients, only: [:destroy]
   end
 
 end

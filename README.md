@@ -16,12 +16,13 @@
 |column|type|option|
 |--------|--------|--------|
 |title|string|null: false, add_index :recipes, :title|
-|main_image|string|--------|
-|catchphrase|string|--------|
+|main_image|text|--------|
+|catchphrase|text|--------|
 |tips|text|--------|
 |publicpage|integer|null: false|
 |background|text|---------|
-|user_id|integer|null: false, foreign_key: true|
+|person|string|---------|
+|user_id|references|null: false, foreign_key: true|
 
 ### association
 
@@ -35,19 +36,19 @@
 |--------|--------|--------|
 |ingredient_name|string|null: false|
 |weight|string|null: false|
-|recipe_id|integer|null: false, foreign_key: true|
+|recipe_id|references|null: false, foreign_key: true|
 
 ### association
 
 - belongs_to :recipe
 
-## processesテーブル
+## advicesテーブル
 
 |column|type|option|
 |--------|--------|--------|
 |making_image|string|-------|
 |body|text|null: false|
-|recipe_id|integer|null: false, foreign_key: true|
+|recipe_id|references|null: false, foreign_key: true|
 
 ### association
 
