@@ -174,20 +174,20 @@
                   %span.name 材料・調味料
                   %span.quantity 分量
                 #edit-ingredients-list.sara_sortable_parent
-                  =fields_for @new_ingredient do |i|
-                    =i.hidden_field :id, value: "#{@new_ingredient.id + 1}", class: "hidden_ingredient_id"
-                  -@ingredients.each do |ingredient|
-                    =fields_for "ingredients[]", ingredient do |other|
-                      #ingredient-row.row.sara_sortable.sara_sortable_block
-                        .sortable_line
-                          .sortable_line_inner
-                            =image_tag("drag_icon", class: "drag")
-                            %span.name
-                              =other.text_field :ingredient_name, value: ingredient.ingredient_name, class: "text-field sortable_line_name", placeholder: "例: 豚肉"
-                            %span.quantity
-                              =other.text_field :weight, value: ingredient.weight, class: "text-field sortable_line_quantity", placeholder: "例: 350g"
-                            =link_to image_tag('delete_icon.png', class: "delete"), recipe_ingredient_path(recipe_id: @recipe, id: ingredient.id), method: :delete
-                            %span
+                  / =fields_for @new_ingredient do |i|
+                  /   =i.hidden_field :id, value: "#{@new_ingredient.id + 1}", class: "hidden_ingredient_id"
+                  / -@ingredients.each do |ingredient|
+                  /   =fields_for "ingredients[]", ingredient do |other|
+                  /     #ingredient-row.row.sara_sortable.sara_sortable_block
+                  /       .sortable_line
+                  /         .sortable_line_inner
+                  /           =image_tag("drag_icon", class: "drag")
+                  /           %span.name
+                  /             =other.text_field :ingredient_name, value: ingredient.ingredient_name, class: "text-field sortable_line_name", placeholder: "例: 豚肉"
+                  /           %span.quantity
+                  /             =other.text_field :weight, value: ingredient.weight, class: "text-field sortable_line_quantity", placeholder: "例: 350g"
+                  /           =link_to image_tag('delete_icon.png', class: "delete"), recipe_ingredient_path(recipe_id: @recipe, id: ingredient.id), method: :delete
+                  /           %span
                   .footer_list
                     .add_ingredient_field
                       %input.append_line{type: "button", value: "行を追加する"}
