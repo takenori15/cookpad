@@ -23,8 +23,17 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe_person = Recipe.select("person").find(params[:id])
     @ingredients = Ingredient.where(recipe_id: params[:id])
-    @new_ingredient = Ingredient.last
+    @new_ingredient = Ingredient.where(recipe_id: params[:id]).last
+    @first_ingredient = Ingredient.new
   end
+def create_first_ingredient
+    binding.pry
+    @recipe = Recipe.find(params[:id])
+    @ingredient = Ingredient.create(first_ingredient_params)
+    @recipe.update(person_params)
+    redirect_to recipe_path(id: @ingredient.recipe_id)
+  end
+
 
   def update
     @recipe = Recipe.find(params[:id])
@@ -43,6 +52,7 @@ class RecipesController < ApplicationController
   end
 
   def ingredients_update
+    binding.pry
     @recipe = Recipe.find(params[:id])
     @new_ingredient = Ingredient.new
     @ingredients = ingredient_params.map do |id, ingredient_param|
@@ -57,9 +67,6 @@ class RecipesController < ApplicationController
     end
     @recipe.update(person_params)
     redirect_to recipe_path(params[:id])
-  end
-
-  def add_advice
   end
 
   private
@@ -77,5 +84,10 @@ class RecipesController < ApplicationController
 
   def ingredient_params
     params.permit(ingredients: [:id, :ingredient_name, :weight])[:ingredients]
+  end
+
+  def first_ingredient_params
+    binding.pry
+    params.require(:recipe).require(:ingredient).permit(:ingredient_name, :weight).merge(recipe_id: params[:id])
   end
 end

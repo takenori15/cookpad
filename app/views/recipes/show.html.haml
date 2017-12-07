@@ -163,23 +163,62 @@
         #cboxLoadedContent{style: "width: 450px; overflow: auto; height: 420px; background: rgb(255, 255, 255);"}
           #ingredients_edit
             #ingredient_list
-              =form_for @recipe, url: {action: :ingredients_update}, html: {id: "save-ingredient"} do |f|
-                .serving_container#servings
-                  (
-                  =f.text_field :person, class:"servings", id: "serving_for", placeholder: "何人分"
-                  )
-                  %span 例)2人分
-                .clear
-                #list_header.list_header
-                  %span.name 材料・調味料
-                  %span.quantity 分量
-                #edit-ingredients-list.sara_sortable_parent
-                  =fields_for @new_ingredient do |i|
-                    =i.hidden_field :id, value: "#{@new_ingredient.id + 1}", class: "hidden_ingredient_id"
+              -unless @new_ingredient.nil?
+                =form_for @recipe, url: {action: :ingredients_update}, html: {id: "save-ingredient"} do |f|
+                  .serving_container#servings
+                    (
+                    =f.text_field :person, class:"servings", id: "serving_for", placeholder: "何人分"
+                    )
+                    %span 例)2人分
+                  .clear
+                  #list_header.list_header
+                    %span.name 材料・調味料
+                    %span.quantity 分量
+                  #edit-ingredients-list.sara_sortable_parent
+                    =fields_for @new_ingredient do |i|
+                      =i.hidden_field :id, value: "#{@new_ingredient.id + 1}", class: "hidden_ingredient_id"
+                    -@ingredients.each do |ingredient|
+                      =fields_for "ingredients[]", ingredient do |other|
+                        #ingredient-row.row.sara_sortable.sara_sortable_block
+                          .sortable_line
+                            .sortable_line_inner
+                              =image_tag("drag_icon", class: "drag")
+                              %span.name
+                                =other.text_field :ingredient_name, value: ingredient.ingredient_name, class: "text-field sortable_line_name", placeholder: "例: 豚肉"
+                              %span.quantity
+                                =other.text_field :weight, value: ingredient.weight, class: "text-field sortable_line_quantity", placeholder: "例: 350g"
+                              =link_to image_tag('delete_icon.png', class: "delete"), recipe_ingredient_path(recipe_id: @recipe, id: ingredient.id), method: :delete
+                              %span
+                    .footer_list
+                      .add_ingredient_field
+                        %input.append_line{type: "button", value: "行を追加する"}
+                      .clear
+                    .submit.save
+                      #ingredients_submit_button
+                        =f.submit class: "ingredients_submit_button", value: "保存して閉じる"
+              -else
+                =form_for @recipe, url: {action: :create_first_ingredient}, html: {id: "save-ingredient"} do |f|
+                  .serving_container#servings
+                    (
+                    =f.text_field :person, class:"servings", id: "serving_for", placeholder: "何人分"
+                    )
+                    %span 例)2人分
+                  .clear
+                  #list_header.list_header
+                    %span.name 材料・調味料
+                    %span.quantity 分量
+                  #edit-ingredients-list.sara_sortable_parent
+                    =f.fields_for :ingredient do |other|
+                      #ingredient-row.row.sara_sortable.sara_sortable_block
+                        .sortable_line
+                          .sortable_line_inner
+                            =image_tag("drag_icon", class: "drag")
+                            %span.name
+                              =other.text_field :ingredient_name, class: "text-field sortable_line_name", placeholder: "例: 豚肉"
+                            %span.quantity
+                              =other.text_field :weight, class: "text-field sortable_line_quantity", placeholder: "例: 350g"
+                            %span
                   .footer_list
-                    .add_ingredient_field
-                      %input.append_line{type: "button", value: "行を追加する"}
-                    .clear
                   .submit.save
                     #ingredients_submit_button
                       =f.submit class: "ingredients_submit_button", value: "保存して閉じる"
